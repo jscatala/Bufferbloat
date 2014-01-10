@@ -1,0 +1,19 @@
+\indent In the ``\textit{slow start}" phase, if a when a lost occurs, half of the current window is saved as a Gresham a variable that is
+ used to determine whether the slow start or congestion avoidance algorithm is used to control data transmission. After this, the \textit{cwnd} is set again to 1 and start to grown until it reaches the ssthresh again. Now, TCP goes into congestion avoidance mode, where for each ACK increases the cwnd in 1/cwnd. A congestion can occur when data arrives at a router whose output capacity is less than the sum of the inputs.  Congestion avoidance is a way to deal with lost packets.\\
+	
+This algorithm makes a fundamental assumption: \textit{the packet loss caused by damage is very small (much less than 1\%), therefore the loss of a packet signals congestion somewhere in the network between the source and destination}.  Two are the indication of package lost: a timeout occurring and the receipt of duplicate ACKs.\\
+
+A good congestion avoidance strategy, must have two components: 1.- The endpoints should know when a congestion is about to occur or occurring into the network, and 2.- If a signal that alert the congestion is received, the network's utilization must decrease and increases if the signal isn't received.\\
+
+When a networks is getting congested, the queue lengths will start to increase exponentially (because of slow-start). The system will collapse if the network doesn't throttle back the traffic sources at leas as quick as the queues are growing. The way that the network announces via dropped packets when demand is excessive, but says nothing if a connection is using less than its fair share. This is also another problem because causes underbuffering, also causing that the resources are not fully under full use.\\
+
+The implementation of congestion avoidance is as simple as slow start, but with a slight difference\cite{Jacobson:1988:CAC:52325.52356}. The steps are:
+\begin{enumerate}
+\item On any timeout, set \textit{cwnd} to half the current window size. This produces a multiplicative decrease.
+\item On each ack for new data, increase \textit{cwnd} by 1/\textit{cwnd}. Now cwnd has an additive increment so now the growth becomes linear.
+\item When sending, send the minimum of the receiver's advertised window and \textit{cwnd}.
+\end{enumerate}
+
+A window of size cwnd packets will generate at most cwnd ACKs in one round trip time. Thus an increment of 1/cwnd per ACK will increase the window by at most one packet in one RTT. In TCP, windows and packet are in bytes so the increment translates to segsize*segsize/cwnd, where segsize is the segment size and cwnd is maintained in bytes.\\
+
+Congestion avoidance and slow start are independent algorithms with different objectives.  But when congestion occurs TCP must slow down  its transmission rate of packets into the network, and then invoke slow start to get things going again. In practice they are implemented together. So, if cwnd is less than or equal to ssthresh, TCP is in slow start; otherwise TCP is performing congestion avoidance. Slow start continues until TCP is halfway to where it was when congestion occurred (since it recorded half of the window size that caused the problem ), and then congestion avoidance takes over.\\

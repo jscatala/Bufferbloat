@@ -1,0 +1,90 @@
+\documentclass[letter, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[dvips]{graphicx}
+\usepackage{url}
+\usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,footskip=1.5cm,headheight=1.5cm,headsep=.5cm,textheight=3cm]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{multirow}
+%% to use the warpfigure capability
+\usepackage{wrapfig} 
+
+%%%%%%%%%%%%%%%%%%%%%%
+%Estilo del documento%
+%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancyplain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fancyheadings. Top y Bottom del documento%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Recuerde que en este documento la portada del documento no posee
+% numeracion, pero de igual manera llamaremos a esa primera pagina la numero
+% 1, y la que viene la dos. Esto es para tener una idea de las que
+% llamaremos pares e impares
+\lhead{} %Parte superior izquierda
+\rhead{\bf \it UTFSM, Casa Central} %Parte superior derecha
+\lfoot{JSCO} %Parte inferior izquierda.
+\cfoot{} %Parte inferior central
+\rfoot{\bf \it Page \thepage} %Parte inferior derecha
+\renewcommand{\footrulewidth}{0.4pt} %Linea de separacion inferior
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tema de las referencias %
+\bibliographystyle{unsrt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{portada}
+
+\newpage
+
+\section{Introduction}
+
+\input{src/intro}
+
+\section{The Bufferbloat Foundations}
+\subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
+
+\input{src/tcp}
+
+\subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
+
+\input{src/slowstart}
+
+\subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
+\input{src/congavoidancealg}
+\subsubsection{The Router's Congestion Avodance Complements}
+\input{src/routerscomp}
+\begin{enumerate}
+\item \textbf{Managing the Routers Queue:} \input{src/mgrq}
+\item \textbf{Active Queue Management and Random Early Detection} \input{src/aqmred}
+\end{enumerate}
+
+\subsection{Latency}
+
+\input{src/latency}
+
+\section{Characterization of Bufferbloat}
+
+\subsection{Backbone Routers}
+
+\input{src/backbonerouters}
+
+\subsection{Residential BroadBand Networks}
+
+\input{src/residentialbbn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%incluyo referencias
+\bibliography{references,rfc}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

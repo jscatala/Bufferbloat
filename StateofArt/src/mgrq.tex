@@ -1,0 +1,25 @@
+As we have seen in previous section, the traditional way to manage router queue
+is, after set a maximum length for the queue, accept packages until this length
+is reached, and then drop subsequent packages until a packet from the stack as
+been transmitted. This technique is called ``tail drop", and has served the
+Internet well enough for years, but it has two important drawbacks:\\
+
+\begin{itemize}
+\item It allows, in some situations, a single or few flows to monopolize the
+queue space, preventing other connections from getting room in the queue.
+\item The signaling is produced only when the queue is full, so it allows queue
+to maintain almost full status for long periods.
+\end{itemize}
+
+If queue is full or almost full, an arriving burst will cause multiple packets to
+be dropped, an this behavior can produce a global synchronization of flows
+throttling back followed by sustained period of lowered link utilization, which
+will impact in a reduce of overall throughput, and if a long flows arrives in
+that period, the lock-out of the queue.\\
+
+Besides tail drop, another two techniques can be applied in these situations.
+The ``random drop on full" will produce that the router drops a randomly selected
+packet from the full queue, which requires an $O(N)$ walk through the queue, when a
+new packet arrives. Under the ``drop front on full", the router drops the packet
+at the front of the queue. Either of these solve the lock-out problem, but
+neither solves the full-queue.\\

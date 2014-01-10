@@ -1,0 +1,28 @@
+In the current Internet, dropped packets are used as a critical mechanism to
+notify a end node when a congestion is presented. So, if a router is capable to
+drop packets before the queue is full, and the end nodes take actions before the
+buffers overflow, the full-queue problem is solved. This proactive approach is
+know as ``active queue management" (AQM) and allows routers to control when and how
+many packets to drop before buffers overflow.\\
+
+For responsive flows, AQM can provide:
+\begin{itemize}
+\item reduce number of packets dropped in routers
+\item provide lower-delay interactive service
+\item avoid lock-out behavior
+\end{itemize}
+
+One AQM algorithm for routers is called ``Random Early Detection" or RED. The
+algorithm drops arriving packets probabilistically, which increases as the
+estimated average queue size grows, so it approach is based on the ``recent
+past" events.\\
+
+The RED algorithm consists of two main parts:
+
+\begin{itemize}
+\item Estimation of the average queue size
+\item Packet drop decision
+\end{itemize}
+
+RED's particular algorithm for dropping is the culprit in the performance
+improvement. 

@@ -1,0 +1,60 @@
+It is not hard to see that in the past few decades, the growth of internet and the
+ways that we uses it has exceed any expectation. With that, the problems related
+with it also as increase. For example, is common to see internet gateways drop
+10\% of incoming packets because of local buffer overflows. As we will see
+through this paper, many are related not with the protocol themselves, instead,
+with the ways that these protocols are implemented. The obvious ways to
+implement a protocol, sometimes, can result in exactly opposite behavior. One
+example is the congestion collapse identified as a possible problem as far back
+as 1984 \cite{rfc896}.  It was first observed on the early Internet in October
+1986, when the NSFnet phase-I backbone dropped three orders of magnitude from
+its capacity of 32 kbit/s to 40 bit/s, and this continued to occur until end
+nodes started implementing Van Jacobson's congestion control between 1987 and
+1988.\\
+
+The root idea of any algorithm related to transport connections must be based
+into the ``\textit{packet conservation principle}". This principle claims that
+\textbf{a new packet isn't put into the network until an old packet leaves}.
+From physics, a conservative flow means that for any given time, the integral of
+the packet density around the sender-receiver-sender loop is a constant, and
+should be robust to the face of congestion\footnote{The proof of this property
+is out of the scope, but if is needed it will be analyzed in the final paper.}
+If this principle is obeyed, congestion collapse would become the exception
+rather than a rule, so the only three ways for packet conservation to fail are:
+
+\begin{enumerate}
+\item The connection doesn't get to equilibrium,
+\item A sender injects a new packet before an old packet has exited,
+\item The equilibrium can't be reached because of resource limits along the path.
+\end{enumerate}
+
+
+The first failure has to be from a connection that is either starting or
+restarting after a packet as loss. The second and third are addressed once the
+data is flowing reliably.\\
+
+The Transmission Control Protocol is one of the core protocols of the Internet
+Protocol Suite, based on a connection less end-to-end packet service. The
+advantages of its connectionless design, flexibility and robustness provides
+reliable, ordered delivery of a stream of bytes from a program on one
+computer to another program on another computer, but for that, the cost are: the
+needed of careful design so it provides a good service under heavy loads, or the
+result can be another ``Melt Down'' like in the '86. \\
+
+To provide a good service, it's needed that TCP flows respond to orders given by
+the hosts machines that controls the connection during congestion. This
+characteristic of flows is called "responsiveness" and tells when a flows must
+``back off" during a congestion.\\
+
+The technique that TCP uses, requires the receiver to respond with an
+acknowledgment message as it receives a packet of data. This technique could be
+use as a clock to adapt to the ``conservation property". Since the receiver can
+generate ACK no faster than data packets can get through the network, the
+protocol is ``self clocking" to when it has to put a new packet into the line,
+and by that, the system can be stable. But this same property causes a redundant
+problem: in order to get data flowing, there must be data flowing that tell when
+to put new packets into the system. For this reason, TCP posses two algorithms,
+the \textit{slow start} and \textit{congestion avoidance}. This algorithms were
+designed to keep in ``equilibrium" the data that is flowing through the
+system.\\
+
