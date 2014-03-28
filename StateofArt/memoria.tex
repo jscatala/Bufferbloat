@@ -46,41 +46,44 @@
 
 \newpage
 
+%section Intro
 \section{Introduction}
 
 \input{src/intro}
 
+%end intro
+%section Foundation
 \section{The Bufferbloat Foundations}
 \subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
-
-\input{src/tcp}
+\input{src/foundation/tcp}
 
 \subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
-
-\input{src/slowstart}
+\input{src/foundation/slowstart}
 
 \subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
-\input{src/congavoidancealg}
+\input{src/foundation/congavoidancealg}
+
 \subsubsection{The Router's Congestion Avodance Complements}
-\input{src/routerscomp}
+\input{src/foundation/routerscomp}
 \begin{enumerate}
-\item \textbf{Managing the Routers Queue:} \input{src/mgrq}
-\item \textbf{Active Queue Management and Random Early Detection} \input{src/aqmred}
+\item \textbf{Managing the Routers Queue:} \input{src/foundation/mgrq}
+\item \textbf{Active Queue Management and Random Early Detection} \input{src/foundation/aqmred}
 \end{enumerate}
 
 \subsection{Latency}
+\input{src/foundation/latency}
 
-\input{src/latency}
-
+%end section Fundation
+%section Characterization
 \section{Characterization of Bufferbloat}
 
 \subsection{Backbone Routers}
-
-\input{src/backbonerouters}
+\input{src/characterization/backbonerouters}
 
 \subsection{Residential BroadBand Networks}
+\input{src/characterization/residentialbbn}
 
-\input{src/residentialbbn}
+%end section Characterization
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
