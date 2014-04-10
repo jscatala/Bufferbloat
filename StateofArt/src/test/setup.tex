@@ -12,7 +12,6 @@ with other flows from different sizes and types. Nor is there more information
 about how the flows are treated by the QM algorithms or about how they are 
 configured.\\
 
-
 \subsubsection{Hardware Characterization}
 
 \begin{description}
@@ -46,7 +45,15 @@ by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram, and
 \end{description}
 
 The idea of using an external device to connect the virtual machine to the 
-network and not using a briged configuration is mainly becouse with an USB 
-device, the machine take care of all the management and administration of the 
-device, avoiding any possibility that the host machine modify or manages any 
-flow. Also t
+network and not using a briged configuration provided by software, is mainly 
+becouse with an USB device the machine will take care of all the management and 
+administration of the device, avoiding any possibility that the host machine 
+modify or manages any flow. Also, by using a second machine to overload the 
+uplink, causes to avoid overflow the queue on the machine that is performing 
+the tests. With this, it is expected to minimize the possibility that our 
+testing machine is causing extra latency, either by the saturation of the 
+wireless channel, or by the queue in the traffic control subsystem into the 
+kernel). \\
+
+
+
