@@ -37,12 +37,12 @@
 \cfoot{} %Parte inferior central
 \rfoot{\bf \it Page \thepage} %Parte inferior derecha
 \renewcommand{\footrulewidth}{0.4pt} %Linea de separacion inferior
-
+\renewcommand{\thefootnote}{\roman{footnote}}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tema de las referencias %
-\bibliographystyle{unsrt}
+\bibliographystyle{acm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{portada}
@@ -105,7 +105,11 @@
 \input{src/test/description}
 
 %end section Test
+\section{Results}
 
+\section{Conclusions}
+
+\section{Further Work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
