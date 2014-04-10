@@ -1,12 +1,16 @@
-The tests will be run under a pseudo controlled enviroment, using one physical 
+The tests will be ran under a pseudo controlled environment, using one physical 
 machine and a second virtual machine hosted in first machine. These machines 
-runs under regular OS without any modification beside the ones that OS provides.
-Also, for some tests two other devices will be added, one acting as a Iperf 
-Server and a regular Android Tablet will be used to put some extra load into the
-network.\\
+runs under a regular OS without any modification beside the ones that the 
+operative system provides. Also, for some tests two other devices will be added, 
+one acting as a Iperf Server and a regular Android Tablet that will be used to 
+add some extra load to the network.\\
 
-This tests will be carried out in a real-world scenario, where no packet 
-priorization by the server will be present, and the routes 
+All of these tests will be carried out in a real-world scenario, where no packet 
+priorization is done by the server against our flows, the routes can vary
+between each iteration of the same test, and many different flows will collide
+with other flows from different sizes and types. Nor is there more information 
+about how the flows are treated by the QM algorithms or about how they are 
+configured.\\
 
 
 \subsubsection{Hardware Characterization}
@@ -40,3 +44,9 @@ by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram, and
 12.04.3 x64 under KVM software using as a processor a Intel Hex-Core 3 GHz.
 
 \end{description}
+
+The idea of using an external device to connect the virtual machine to the 
+network and not using a briged configuration is mainly becouse with an USB 
+device, the machine take care of all the management and administration of the 
+device, avoiding any possibility that the host machine modify or manages any 
+flow. Also t

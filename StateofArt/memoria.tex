@@ -15,7 +15,9 @@
 \usepackage{multirow}
 \usepackage{hyperref}
 %% to use the warpfigure capability
-\usepackage{wrapfig} 
+\usepackage{wrapfig}
+%% Double spacing
+\usepackage{setspace}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %Estilo del documento%
@@ -46,7 +48,7 @@
 \include{portada}
 
 \newpage
-
+\doublespacing
 %section Intro
 \section{Introduction}
 
@@ -74,6 +76,8 @@
 \subsection{Latency}
 \input{src/foundation/latency}
 
+\newpage
+
 %end section Fundation
 %section Characterization
 \section{Characterization of Bufferbloat}
@@ -83,6 +87,8 @@
 
 \subsection{Residential BroadBand Networks}
 \input{src/characterization/residentialbbn}
+
+\newpage
 
 %end section Characterization
 %section Test
