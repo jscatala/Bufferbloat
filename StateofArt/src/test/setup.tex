@@ -6,7 +6,7 @@ one acting as a Iperf Server and a regular Android Tablet that will be used to
 add some extra load to the network.\\
 
 All of these tests will be carried out in a real-world scenario, where no packet 
-priorization is done by the server against our flows, the routes can vary
+prioritization is done by the server against our flows, the routes can vary
 between each iteration of the same test, and many different flows will collide
 with other flows from different sizes and types. Nor is there more information 
 about how the flows are treated by the QM algorithms or about how they are 
@@ -19,7 +19,7 @@ configured.\\
 
 \item [Physical Machine] \hfill \\
 The physical machine runs as host OS, Windows 7 SP1, that works with a Intel(R)
-Core(TM) i7-2670QM CPU \@ 2.20GHz with 8Gb of avaible RAM. This machill will 
+Core(TM) i7-2670QM CPU \@ 2.20GHz with 8GB of available RAM. This machill will 
 always be connected through its wireless adapter, a \textit{Broadcom Corp. 
 BCM4313 802.11b/g/n Wireless LAN Controller (rev 01)}. The Ethernet controller 
 is a \textit{Realtek Semiconductor Co., Ltd. RTL8111/8168 PCI Express Gigabit 
@@ -28,7 +28,7 @@ machine in some tests.\\
 
 \item[Virtual Machine] \hfill \\
 The virtual machine is hosted using VMWare Player 6.0.1, with 4 processors 
-assigned for use plus 4Gb of RAM, and with the Ethernet adapter connected only
+assigned for use plus 4GB of RAM, and with the Ethernet adapter connected only
 for certain tests. The OS selected is a Debian based OS called Kali Linux, and
 using the kernel release identified as Debian 3.12.6-2kalii1.\\
 
@@ -38,7 +38,7 @@ hooked to the physical machine without the adapter, this way any extra signal
 loss is avoided. \\
 
 \item[Iperf Server] \hfill \\
-This machine will be used as a server for the iperf test. This is a vps hosted 
+This machine will be used as a server for the Iperf test. This is a vps hosted 
 by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram, and 
 20GB SSD Disk, and located in New York data center. This machine runs Ubuntu 
 12.04.3 x64 under KVM software using as a processor a Intel Hex-Core 3 GHz.
@@ -46,7 +46,7 @@ by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram, and
 \end{description}
 
 The idea of using an external device to connect the virtual machine to the 
-network and not using a briged configuration is mainly becouse with an USB 
+network and not using a bridged configuration is mainly because with an USB 
 device, the machine take care of all the management and administration of the 
 device, avoiding any possibility that the host machine modify or manages any 
 flow. Also t
