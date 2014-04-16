@@ -1,8 +1,7 @@
 \documentclass[letter, 11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{amsfonts}
-\usepackage{amsmath}
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
 \usepackage[dvips]{graphicx}
 \usepackage{url}
 \usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,footskip=1.5cm,headheight=1.5cm,headsep=.5cm,textheight=3cm]{geometry}
@@ -11,10 +10,12 @@
 \usepackage{fancyvrb}
 \usepackage{fancyhdr}
 \usepackage{enumerate}
-\usepackage{amssymb}
 \usepackage{multirow}
+\usepackage{hyperref}
 %% to use the warpfigure capability
-\usepackage{wrapfig} 
+\usepackage{wrapfig}
+%% Double spacing
+\usepackage{setspace}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %Estilo del documento%
@@ -27,25 +28,34 @@
 % Recuerde que en este documento la portada del documento no posee
 % numeracion, pero de igual manera llamaremos a esa primera pagina la numero
 % 1, y la que viene la dos. Esto es para tener una idea de las que
-% llamaremos pares e impares
+% llamaremos pares e impares	
 \lhead{} %Parte superior izquierda
 \rhead{\bf \it UTFSM, Casa Central} %Parte superior derecha
 \lfoot{JSCO} %Parte inferior izquierda.
 \cfoot{} %Parte inferior central
 \rfoot{\bf \it Page \thepage} %Parte inferior derecha
 \renewcommand{\footrulewidth}{0.4pt} %Linea de separacion inferior
-
+\renewcommand{\thefootnote}{\roman{footnote}}
+\newtheorem*{theoremnon}{Theorem}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tema de las referencias %
-\bibliographystyle{unsrt}
+\bibliographystyle{acm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{portada}
 
 \newpage
 
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+
+\newpage
+
+\doublespacing
 %section Intro
 \section{Introduction}
 
@@ -73,6 +83,8 @@
 \subsection{Latency}
 \input{src/foundation/latency}
 
+\newpage
+
 %end section Fundation
 %section Characterization
 \section{Characterization of Bufferbloat}
@@ -83,8 +95,56 @@
 \subsection{Residential BroadBand Networks}
 \input{src/characterization/residentialbbn}
 
-%end section Characterization
+\newpage
 
+%end section Characterization
+%section Test
+\section{Experimental Work}
+\input{src/test/experimental}
+
+\subsection{The Test Setup}
+\input{src/test/setup}
+
+\subsection{Tools Definition}
+\input{src/test/tools}
+
+\subsection{Test Description}
+\input{src/test/description}
+
+%end section Test
+\newpage
+%section Results
+\section{Results}
+\input{src/results/results}
+
+\subsection{Speed test}
+\input{src/results/speed}
+
+\subsection{Netalyzr test}
+\input{src/results/netalyzr}
+
+\subsection{Iperf test}
+\input{src/results/iperf }
+
+\subsection{Benchmark test}
+\input{src/results/benchmark }
+
+\subsection{Smokeping Test}
+\input{src/results/smokeping }
+
+\subsection{Summarising Results}
+\input{src/results/all}
+%end section Test
+\newpage
+%section Test
+\section{Conclusions}
+\input{src/conclusions}
+%end section Conclusions
+\newpage
+%section Further
+\section{Further Work}
+\input{src/further}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
 \bibliography{references,rfc}{}

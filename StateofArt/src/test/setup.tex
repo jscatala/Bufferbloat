@@ -1,0 +1,63 @@
+The tests will be ran under a pseudo controlled environment, using one
+physical  machine and a second virtual machine hosted in first machine. These
+machines  runs under a regular OS without any modification beside the ones
+that the  own OS. Also, for some tests two other devices will be added,  one
+acting as a Iperf Server and a regular Android Tablet that will be used to
+add some extra load to the network when the Ethernet cable is used as medium.\\
+
+All of these tests will be carried out in a real-world scenario, where no
+packet  prioritization is done by the server against our flows, the routes can
+vary between each iteration of the same test, and many different flows will
+collide with other flows from different sizes and types. Nor is there more
+information  about how the flows are treated by the QM algorithms or about how
+they are  configured.\\
+
+\subsubsection{Hardware Characterization}
+
+\begin{description}
+
+\item [Physical Machine]: \hfill \\
+The physical machine runs as host OS, Windows 7 SP1, that works with a Intel(R)
+Core(TM) i7-2670QM CPU \@ 2.20GHz with 8GB of available RAM. This machine will 
+always be connected through its wireless adapter, a \textit{Broadcom Corp. 
+BCM4313 802.11b/g/n Wireless LAN Controller (rev 01)}. The Ethernet controller 
+is a \textit{Realtek Semiconductor Co., Ltd. RTL8111/8168 PCI Express Gigabit 
+Ethernet controller (rev 06)}, adapter will be bridged to the virtual 
+machine for some tests.\\
+
+\item[Virtual Machine]: \hfill \\
+The virtual machine is hosted using VMWare Player 6.0.1, with 4 processors 
+assigned for use plus 4GB of RAM, and with the Ethernet adapter connected only
+for certain tests. The OS selected is a Debian based OS called Kali Linux, and
+using the kernel release identified as Debian 3.12.6-2kali.\\
+
+The wireless adapter is a AIR-802 USB adapter with Zydas chipset and a TP-link
+8dbi antenna. This adapter is directly connected to the virtual machine and
+hooked to the physical machine without the USB extension, this way any extra
+signal  loss is avoided. \\
+
+\item[Iperf Server]: \hfill \\
+This machine will be used as a server for the Iperf test. This is a VPS hosted 
+by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram, and 
+20GB SSD Disk, and located in New York data center. This machine runs Ubuntu 
+12.04.3 x64 under KVM software using as a processor a Intel Hex-Core 3 GHz.
+
+\end{description}
+
+The idea of using an external device to connect the virtual machine to the 
+network and not using a bridged configuration provided by software, is mainly 
+because with an USB device the machine will take care of all the management and 
+administration of the device, avoiding any possibility that the host machine 
+modify or manages any flow. Also, by using a second machine to overload the 
+uplink, causes to avoid overflow the queue on the machine that is performing 
+the tests. With this, it is expected to minimize the possibility that our 
+testing machine is causing extra latency, either by the saturation of the 
+wireless channel, or by the queue in the traffic control subsystem into the 
+kernel). \\
+
+For the tests, the Bufferbloat community has created a set of best 
+practices\cite{tg12} to follow so the results are consistent and repeatable, 
+but in this case, computers and routers will not be modified as it will attempt 
+to analyze what an every day user experience. Only will be taken in 
+consideration if it is the QOS present in some routers and deactivate it.\\
+ 
