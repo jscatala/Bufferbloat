@@ -22,6 +22,11 @@ pdf:
 clean:
 	@echo "Limpiando..."
 	@rm -f $(BIN)/*.{aux,toc,log,tmp,dvi,idx,ilg,ind,bbl,blg,out,nav,snm} 
+	@rm -f *.{aux,toc,lof,log,lot,tmp,dvi,idx,ilg,ind,bbl,blg,out,nav,snm}
+
+move:
+	@echo "Moviendo pdf..."
+	@mv -f memoria.pdf $(BIN)
 
 distclean:
 	@echo "Limpiando todo!..."
