@@ -58,47 +58,43 @@
 \doublespacing
 %section Intro
 \section{Introduction}
-
 \input{src/intro}
-
 %end intro
-%section Foundation
-\section{The Bufferbloat Foundations}
-\subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
-\input{src/foundation/tcp}
-
-\subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
-\input{src/foundation/slowstart}
-
-\subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
-\input{src/foundation/congavoidancealg}
-
-\subsubsection{The Router's Congestion Avodance Complements}
-\input{src/foundation/routerscomp}
-\begin{enumerate}
-\item \textbf{Managing the Routers Queue:} \input{src/foundation/mgrq}
-\item \textbf{Active Queue Management and Random Early Detection} \input{src/foundation/aqmred}
-\end{enumerate}
-
-\subsection{Latency}
-\input{src/foundation/latency}
 
 \newpage
 
-%end section Fundation
-%section Characterization
-\section{Characterization of Buffers}
-\input{src/buffers/buffs}
+%section TCP
+%subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
+%subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
+%subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
+%
+\section{The Transport Control Protocol}
+\input{src/tcp/tcp}
 
-\subsection{Backbone Routers}
-\input{src/buffers/backbonerouters}
+\subsection{Fundamentals of TCP}
+\input{src/tcp/fundamentals}
 
-\subsection{Residential BroadBand Networks}
-\input{src/buffers/residentialbbn}
+\subsection{TCP's Phases }
+%\input{src/tcp/phases}
+
+\subsection{Hidden Flaws and Bufferbloat}
+%\input{src/tcp/flaws}
+%end TCP
 
 \newpage
 
-%end section Characterization
+%section AQM
+\section{Active Queue Management}
+%end AQM
+
+\newpage
+
+%section Buffers 
+\section{Interaction with Buffers}
+%end intro
+
+\newpage
+
 %section Test
 \section{Experimental Work}
 \input{src/test/experimental}

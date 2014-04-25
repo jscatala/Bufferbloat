@@ -1,0 +1,62 @@
+TCP operates basically making two hosts exchange segments of data. The
+connection between these two hosts is identified uniquely at each end by the
+host's network address and a 16 bit port number. The communication between the
+hosts is initiated by a three way handshake between them. This is where the
+sequence number is synchronized between the participants. The sequence number
+is a 32-bit number and it is the basis for a reliable data transport, working as
+a mechanism to assure the exchange of data through an unreliable network
+medium counting the bytes transmitted making possible be checked by the
+receiver and be acknowledged. This is, starting from the initial sequence
+number, each data byte sent as part of the connection has a corresponding
+sequence number; and only after having being acknowledged by the receiver is
+the data considered to be transmitted successfully.\\
+
+TCP made use of the idea of pipe size and the knowledge there was reasonable
+but not excessive buffering along the data path to send a window of packets at
+a time. To control the amount of data that flows through the network path, the
+receiver sent the information of how much data can receive at once, so the
+network resource is utilized in a more efficiently way. This window of data
+means how many bytes the receiver can work with, given the available buffering
+and processing constraints. All the extra data in excess will be dropped. This
+window is also a constrain to the sender, because the sender is not allowed to
+transmits no more data than the window before waiting for the response of the
+host as acknowledgment of the sent data.\\
+
+To manage the data sent and the acknowledgment received for those packets, TCP
+uses a cumulative scheme. After a packet is in flow from the server with its
+corresponding sequence number, sent data goes to a retransmission queue where
+it is held until the corresponding acknowledge from the other end has come in
+or, to be resent if not acknowledgment within a timeout. When the
+acknowledgment of a sequence number is received, the sender discard all data
+with sequence numbers bellow the sequence number in the acknowledgment that
+has arrive. Otherwise, the data is resent. Here, \textit{the timeout is set
+from the measured round trip time time of the connection, taking into account
+the variance of the measured values}\cite{JacobsonCAC}.\\
+
+Because today's networks are dynamic and in different configurations, both
+topologically speaking as a  bandwidth, TCP must handle these changes and
+still be able to maintain communication between the two hosts. The lost of
+communications can be an issue that TCP needs to take into account. In case of
+lost of one packet means subsequent packets cannot be acknowledged until the
+lost packet is retransmitted. This can lad to excessive retransmission and
+unnecessary load. TCP extension has been developed that allows the receiver to
+send selective acknowledgments of block of received data with sequence numbers
+that are not cumulative with the data acknowledged in the traditional
+way\cite{RFC2018}.\\
+
+Since networks are shared and conditions change along the path, the algorithms
+continually probe the network and adapt the number of packets in flight. It is
+not hard also (but it is often the case) to find along the way decreases in
+the bandwidth. This spots are the bottlenecks and they are important because
+the performance or capacity of the entire connection (connection as a state
+between the two hosts) is limited by the resources that this trace has. With
+this, controlling the optimal rate of data transmission is a hard work, and
+the receiver window as communicated by TCP is not a necessarily a very good
+indicator. To fix this issue, TCP received an addition to its specification:
+\textit{congestion window}. The congestion window plays a crucial role in
+estimating the available bandwidth between the hosts. After this modification,
+the minimum between the receiver window and the congestion window is used as
+the transmit limit. All the TCP additions attempt to keep the network
+operating near the inflection point where throughput is maximized, delay is
+minimized, and little loss occurs.\\
+
