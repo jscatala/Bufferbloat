@@ -16,6 +16,8 @@
 \usepackage{wrapfig}
 %% Double spacing
 \usepackage{setspace}
+%% To use appendix
+\usepackage[title,titletoc,toc]{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %Estilo del documento%
@@ -142,6 +144,11 @@
 \section{Further Work}
 \input{src/further}
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendices}
+\section{Definitions}\label{app:definitions}
+\input{src/app/defs}
+\end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
 \bibliography{references,rfc}{}
