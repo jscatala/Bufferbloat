@@ -17,8 +17,10 @@ a time. To control the amount of data that flows through the network path, the
 receiver sent the information of how much data can receive at once, so the
 network resource is utilized in a more efficiently way. This window of data
 means how many bytes the receiver can work with, given the available buffering
-and processing constraints. All the extra data in excess will be dropped. This
-window is also a constrain to the sender, because the sender is not allowed to
+and processing constraints. That is, window size represents how much data a
+device can handle from its peer at one time before it is passed to the
+application process. All the extra data in excess will be dropped. This window
+is also a constrain to the sender, because the sender is not allowed to
 transmits no more data than the window before waiting for the response of the
 host as acknowledgment of the sent data.\\
 
@@ -29,9 +31,11 @@ it is held until the corresponding acknowledge from the other end has come in
 or, to be resent if not acknowledgment within a timeout. When the
 acknowledgment of a sequence number is received, the sender discard all data
 with sequence numbers bellow the sequence number in the acknowledgment that
-has arrive. Otherwise, the data is resent. Here, \textit{the timeout is set
-from the measured round trip time time of the connection, taking into account
-the variance of the measured values}\cite{JacobsonCAC}.\\
+has arrive. For retransmission, TCP uses an adaptive scheme. The timeout is
+automatically set from the measured round trip time of the connection,
+taking into account the variance of the measured values\cite{JacobsonCAC}.
+This helps avoid retransmitting potentially lost segments too quickly or too
+slowly.\\
 
 Because today's networks are dynamic and in different configurations, both
 topologically speaking as a  bandwidth, TCP must handle these changes and
@@ -59,4 +63,3 @@ the minimum between the receiver window and the congestion window is used as
 the transmit limit. All the TCP additions attempt to keep the network
 operating near the inflection point where throughput is maximized, delay is
 minimized, and little loss occurs.\\
-
