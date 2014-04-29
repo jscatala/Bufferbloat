@@ -1,0 +1,40 @@
+Because much of the basis for how TCP was designed in the early days of the
+Internet, where speeds were low, the burden on the networks were only a few
+kbps, and the networks interconnecting were separated by a couple
+milliseconds, the use was ideal. But it is not hard to see that in the past
+few decades, Internet growth has exceeded the expectations of even the most
+experienced analysts and dreamers.\\
+
+Intensive-consumption applications like on-line games, audio and video
+streaming for music or on-line calls, torrent or P2P applications and other
+sites that have a high level of resource utilization like Youtube, Facebook or
+Netflix, have made networks of today are quite different from those that
+formerly existed, but still running the same protocols\footnote{While many
+have been updated, the basics remain the same}. If that was not enough, the
+creation and incorporation of new devices such as cell phones, tablet and even
+smart-watch with the ability to transmit data over the Internet, the more
+necessary efficient and properly handling the wealth of information is
+becoming.\\
+
+TCP relies on timely notification to adjust its transmission rate to the
+available bandwidth, which is commonly signaled by the packet loss. But since
+couple of years, and helped by lower prices on hardware manufacturing along
+with the thought that more is always better, the manufacturers had decide to
+prevent as much as possible the loss with the addition of larger buffers on
+their devices. This simple action is slowly bringing a new collapse not only
+TCP but data transmission in general, as can be seen in \cite{CACMStaff}.\\
+
+With the increase in the size of the buffers, the packages spent more time
+``on the fly'' in this big buffers instead of dropped, signaling to TCP to
+reduce the sending rate. When this large amount of data is dropped, causes TCP
+sharply drop in transmission rate, freeing up bandwidth. Unfortunately, due to
+the size of the buffers is static, when the new TCP slow-start phase start,
+again due to the lack of signals out of time, TCP will work with diminish
+performance. This problem is cyclical, resulting in exponential TCP back-off,
+throughput degradation and very high latency.\\
+
+But the path on Internet are shared by multiple TCP streams so the buffers,
+and this back-off behavior has a tendency to synchronize flows
+\cite{main:ref:1}. This cause all the flows to throttle back their
+transmission rates simultaneously, amplifying the effect. This decrease in
+latency and reduced throughput are the effects of Bufferbloat phenomenon.\\
