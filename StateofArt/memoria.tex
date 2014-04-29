@@ -70,7 +70,7 @@
 \doublespacing
 %section Intro
 \section{Introduction}
-\input{src/intro}
+%\input{src/intro}
 %end intro
 
 \newpage
@@ -88,12 +88,9 @@
 
 \subsection{TCP's Phases }
 \input{src/tcp/phases}
-
-\subsection{Hidden Flaws and Bufferbloat}
-%\input{src/tcp/flaws}
 %end TCP
 
-\newpage
+%\newpage
 
 %section AQM
 \section{Active Queue Management}
@@ -110,7 +107,13 @@
 
 %section Buffers 
 \section{Interaction with Buffers}
-%end intro
+%end Buffers
+
+\newpage
+%Flaws
+\section{Hidden Flaws and Bufferbloat}
+\input{src/tcp/flaws}
+%end Flaws
 
 \newpage
 

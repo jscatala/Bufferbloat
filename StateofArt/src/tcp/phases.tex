@@ -127,21 +127,55 @@ recover from, that can be worst if the packet drop is made at a late stage of
 the slow start\footnote{since slow start adds one extra packet for each
 acknowledged}.\\
 
-\paragraph{Compound TCP} under dev \cite{Tan06compoundtcp} and \cite{4146841}\\
+\paragraph{Compound TCP} is the modification to TCP stack algorithm promoted
+for Microsoft and implemented in their systems since Windows Vista and Server
+2008. This algorithm aims to achieve a significant improvement in resource
+utilization by TCP, presenting an fair mix between delay-based approach and
+loss-based approach.\\
 
-\subsubsection{Fast retransmit and fast recovery} Timers are an important part
-of this self-regulated protocol. TCP maintains four timers\footnote{The timers
-that TCP has for each connection are: (1)Persist Timer: Ensures that window size information is transmitted even 
-if no data is transmitted. (2)Keepalive Timer: Detects crashes on the other end of the
-connection. (3)2MSL Timer: Measures the time that a connection has been in
-the TIME\_WAIT state. (4)Retransmission Timer: The timer is started during a
-transmission. A timeout causes a retransmission}.
-One of them, the retransmission timer, causes the sender to retransmit the
-segment over which at the expiry of this timer(which is a function of the
-estimated RTT), has not yet received their respective acknowledge, assuming
-the segment is lost in the network. When this action is unleashed, the server
-will interpret it as a sign of congestion, but data still flowing.\\
+CTCP is based in the idea that if the link is under-utilized, the protocol
+should incraese the sending rate in a agressibly manner so it can obtain
+available bandwidth more quickly. But when the link is nearly full
+utilization, keep that aggressiveness is unproductive because at this stage it
+is expected that the protocol is more accurate in achieving complete the
+remaining bandwidth. So CTCP incorporates a scalable delay-based component
+into the standard TCP congestion avoidance algorithm\cite{4146841}.\\
 
-As already seen in \textbf{2.2.2.1}, slow start can do a lot of damage to our networks, but fast retransmit helps to recover from lost without hurting the network that much. It is triggered after a specified number of acknowledgments, usually is at the third, with the same acknowledge number are received by the sender. This gives makes the sender reasonably confident that the next higher sequence number was dropped and needs to be retransmitted; all this without the need for the action triggered by the timeout.\\
+\begin{wrapfigure}{r}{0.5\textwidth}
+    %\rule{5.5cm}{7.1cm}
+  \begin{center}
+    \[ win = min(cwnd + dwnd, awnd)\]
+  \end{center}
+  \caption{Compound TCP sending window.\protect\footnotemark}
+  \label{fig:ctcpform}
+\end{wrapfigure}
 
-Fast recovery manages the continuous transmitting of new data on subsequent duplicate acknowledgments, until the retransmitted packet is received. and after a non-duplicated acknowledge is received, the congestion window is reset back to the value it had before the fast retransmit was initiated, and the fast recovery mode is ended, going back to congestion avoidance mode.\\
+As can be seen in figure \ref{fig:ctcpform}, the congestion window or cwnd which manages the loss-based component is untouched, and a delay window - dwnd - is added to manage the delay-based component.  The awnd is the advertised window from the receiver. This algorithm has shown that in periods of under-utilization, it has an aggressive and scalable increase rule, and gradually it reduce the sending rate accordingly when the network is sensed to be fully utilized. But thanks to the packet loss component, it also reacts to packet loss reducing the sending rate to keep the conservative property of TCP. Also, Tan et al\cite{Tan06compoundtcp} has reveal that CTCP has a good performance over current high BDP networks too.\\
+
+\subsubsection{Fast retransmit and fast recovery} 
+Timers are an important part of this self-regulated protocol. TCP maintains
+four timers\footnote{The timers that TCP has for each connection are:
+(1)Persist Timer: Ensures that window size information is transmitted even  if
+no data is transmitted. (2)Keepalive Timer: Detects crashes on the other end
+of the connection. (3)2MSL Timer: Measures the time that a connection has been
+in the TIME\_WAIT state. (4)Retransmission Timer: The timer is started during
+a transmission. A timeout causes a retransmission}. One of them, the
+retransmission timer, causes the sender to retransmit the segment over which
+at the expiry of this timer(which is a function of the estimated RTT), has not
+yet received their respective acknowledge, assuming the segment is lost in the
+network. When this action is unleashed, the server will interpret it as a sign
+of congestion, but data still flowing.\\
+
+As already seen in \textbf{2.2.2.1}, slow start can do a lot of damage to our
+networks, but fast retransmit helps to recover from lost without hurting the
+network that much. It is triggered after a specified number of
+acknowledgments, usually is at the third, with the same acknowledge number are
+received by the sender. This gives makes the sender reasonably confident that
+the next higher sequence number was dropped and needs to be retransmitted; all
+this without the need for the action triggered by the timeout.\\
+
+Fast recovery manages the continuous transmitting of new data on subsequent
+duplicate acknowledgments, until the retransmitted packet is received. and
+after a non-duplicated acknowledge is received, the congestion window is reset
+back to the value it had before the fast retransmit was initiated, and the
+fast recovery mode is ended, going back to congestion avoidance mode.\\
