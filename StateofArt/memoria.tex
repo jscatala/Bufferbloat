@@ -16,6 +16,10 @@
 \usepackage{wrapfig}
 %% Double spacing
 \usepackage{setspace}
+%% To use appendix
+\usepackage[title,titletoc,toc]{appendix}
+% Justify caption text
+\usepackage[justification=centering]{caption}
 
 %%%%%%%%%%%%%%%%%%%%%%
 %Estilo del documento%
@@ -36,7 +40,16 @@
 \rfoot{\bf \it Page \thepage} %Parte inferior derecha
 \renewcommand{\footrulewidth}{0.4pt} %Linea de separacion inferior
 \renewcommand{\thefootnote}{\roman{footnote}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
 \newtheorem*{theoremnon}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+
+\setcounter{secnumdepth}{5} %activate subsubsubsection = paragraph
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,7 +62,6 @@
 \newpage
 
 \tableofcontents
-\newpage
 \listoffigures
 \listoftables
 
@@ -58,47 +70,53 @@
 \doublespacing
 %section Intro
 \section{Introduction}
-
-\input{src/intro}
-
+%\input{src/intro}
 %end intro
-%section Foundation
-\section{The Bufferbloat Foundations}
-\subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
-\input{src/foundation/tcp}
-
-\subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
-\input{src/foundation/slowstart}
-
-\subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
-\input{src/foundation/congavoidancealg}
-
-\subsubsection{The Router's Congestion Avodance Complements}
-\input{src/foundation/routerscomp}
-\begin{enumerate}
-\item \textbf{Managing the Routers Queue:} \input{src/foundation/mgrq}
-\item \textbf{Active Queue Management and Random Early Detection} \input{src/foundation/aqmred}
-\end{enumerate}
-
-\subsection{Latency}
-\input{src/foundation/latency}
 
 \newpage
 
-%end section Fundation
-%section Characterization
-\section{Characterization of Buffers}
-\input{src/buffers/buffs}
+%section TCP
+%subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
+%subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
+%subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
+%
+\section{The Transport Control Protocol}
+\input{src/tcp/tcp}
 
-\subsection{Backbone Routers}
-\input{src/buffers/backbonerouters}
+\subsection{Fundamentals of TCP}
+\input{src/tcp/fundamentals}
 
-\subsection{Residential BroadBand Networks}
-\input{src/buffers/residentialbbn}
+\subsection{TCP's Phases }
+\input{src/tcp/phases}
+%end TCP
+
+%\newpage
+
+%section AQM
+\section{Active Queue Management}
+\input{src/aqm/aqm}
+\subsection{BLUE}
+\input{src/aqm/blue}
+\subsection{RED}
+\input{src/aqm/red}
+\subsection{CoDel}
+\input{src/aqm/codel}
+%end AQM
 
 \newpage
 
-%end section Characterization
+%section Buffers 
+\section{Interaction with Buffers}
+%end Buffers
+
+\newpage
+%Flaws
+\section{Hidden Flaws and Bufferbloat}
+\input{src/tcp/flaws}
+%end Flaws
+
+\newpage
+
 %section Test
 \section{Experimental Work}
 \input{src/test/experimental}
@@ -146,6 +164,14 @@
 \section{Further Work}
 \input{src/further}
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendix}
+\section{Definitions}\label{app:definitions}
+\input{src/app/defs}
+\section{Speed Test results}\label{app:bwmeasures}
+\input{src/app/bwmeasures}
+\newpage
+\end{appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
 \bibliography{references,rfc}{}

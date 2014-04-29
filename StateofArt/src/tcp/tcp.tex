@@ -1,0 +1,18 @@
+%http://www.linktionary.com/c/congestion.html
+%http://condor.depaul.edu/jkristof/technotes/congestion.pdf 
+
+The Transport Control Protocol or TCP is main transport protocol of the
+internet, providing reliable host to host communication over unreliable
+transport media\cite{RFC793}. The advantages of its connectionless design,
+flexibility and robustness provides reliable, ordered delivery of a stream of
+bytes from a program on one computer to another program on another computer,
+but for that, the cost are: the needed of careful design so it provides a good
+service under heavy loads. Many modifications has been done since it was
+originally defined in 1981.\\
+
+The root idea of any algorithm related to transport connections must be based
+into the ``\textit{packet conservation principle}". This principle claims:
+
+\begin{defn}
+A new packet isn't put into the network until an old packet leaves.
+\end{defn}
