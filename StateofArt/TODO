@@ -1,0 +1,11 @@
+Cosas por hacer:
+
+- Revisar portada, ajustar al formato UTFSM
+- Formato de notas a pie de página, los números romanos se ven raros.
+- Monos (p.ej. pag. 6) no funcionan con "wrap"
+- El formato de ecuaciones con variables "texto" require revisión, tal vez
+  usar \operatorname{RTT}?
+- ¿Que es "a Gresham"? (pag. 8, "The Congestion Avoidance Algorithm")
+- ¿Vale la pena mencionar ECN (Explicit Congestion Notification)? (pag.12)
+- ¿Referencias para las herramientas? (pag. 20)
+- Me late que no da para "teorema"... (pag. 23)
