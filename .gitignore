@@ -1,3 +1,5 @@
 *.tar.gz
 *.tex.bak
+*.orig
+*.rej
 StateofArt/no_track
