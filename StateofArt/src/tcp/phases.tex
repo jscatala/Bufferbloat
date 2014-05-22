@@ -13,6 +13,8 @@ algorithms, the \textit{slow start} and \textit{congestion avoidance} were
 designed to keep in ``equilibrium'' the data that is in exchange. Later a
 third where added, the \textit{fast retransmit and fast recovery}.
 
+\newpage
+
 \subsubsection{Slow start and Congestion avoidance}
 
  \begin{wrapfigure}{r}{0.5\textwidth}
@@ -79,7 +81,17 @@ less aggressive behavior than their predecessors, while retaining excellent
 scalability, fairness and stability. As can be seen in figure
 \ref{fig:cubicfunc}, the cubic function is compound of three parts: a concave
 part where the window grows rapidly over small time values, a plateau set at the previous maximal
-congestion window 
+congestion window size, and the end portion where the increasing bandwidth
+above the maximum which exhibits a convex shape.
+
+As can be better seen in the formula \ref{fig:cubicform}, the congestion
+window ain't dependent of its previous acknowledged packets; instead, the
+congestion window is computed at each step from a calibrated function. With
+this calibration, the plateau is at the previous maximal congestion window
+size. This feature allow the algorithm to respond faster to changes in
+available bandwidth. Since in previous algorithms throughput is defined by the
+packet loss rate as well as RTT, the throughput in CUBIC is defined by only
+the packet loss rate.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     %\rule{5.5cm}{7.1cm}
@@ -90,10 +102,11 @@ congestion window
 \label{fig:cubicfunc}
 \end{wrapfigure}
 
-\noindent size, and the end portion where the increasing bandwidth
-above the maximum which exhibits a convex shape.
+Another feature that CUBIC has with respect to its predecessor in the Linux
+kernel, it also changes the behavior of the Slow Start algorithm, replacing it
+with
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{minipage}{6cm}
 \centering
 	\[ W_{cubic} = C(t - K)^3 + W_{max}\]
@@ -108,19 +121,8 @@ reduction. $K=sqrt[3]{W_{max}beta/C}$. And $beta$ is a constant
 multiplication decrease factor applied for window reduction at the time of
 loss event}
 
-As can be better seen in the formula \ref{fig:cubicform}, the congestion
-window ain't dependent of its previous acknowledged packets; instead, the
-congestion window is computed at each step from a calibrated function. With
-this calibration, the plateau is at the previous maximal congestion window
-size. This feature allow the algorithm to respond faster to changes in
-available bandwidth. Since in previous algorithms throughput is defined by the
-packet loss rate as well as RTT, the throughput in CUBIC is defined by only
-the packet loss rate.
-
-Another feature that CUBIC has with respect to its predecessor in the Linux
-kernel, it also changes the behavior of the Slow Start algorithm, replacing it
-with one called Hybrid Slow Start (or HyStart)\cite{HaElephants}. The idea
-behind this algorithm is to prevent the extra drop of packets caused by the
+\noindent  one called Hybrid Slow Start (or HyStart)\cite{HaElephants}. 
+The idea behind this algorithm is to prevent the extra drop of packets caused by the
 overshoot of bandwidth done by the regular slow start. This extra amount of
 data cause unnecessary on both ends hosts and network, and taking long time to
 recover from, that can be worst if the packet drop is made at a late stage of

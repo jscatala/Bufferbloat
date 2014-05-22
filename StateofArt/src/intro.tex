@@ -12,3 +12,12 @@ The existence of cheap memory and a misguided desire to avoid packet loss has le
 
 
 delay-based and loss-based approach
+
+\cite{NicholsJacobsonCQD}
+Cheap memory and ``more is better'' mentality have led to the inflation and proliferation of buffers. Second, dinamically varying path characteristics are much more common today and are the norm at the consumer Internet edge.
+
+as each packet is squeezed down in bandwidth, it must stretch out in time since its size stays constant.
+
+This standing queue, resulting from mismatch between the window and pipe size, is the essence of bufferbloat. It creates large delays but no improvement in throughput. It is not a phenomenon treated by queueing or traffic theory, which unfortunately, results in it being almost universally misclassified as congestion.
+
+The bufferbloat problem, making the window match the pipe size, is hard to address. Window sizes are chosen by senders while queues manifest at bottleneck gateways.
