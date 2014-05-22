@@ -1,38 +1,33 @@
 % 2.- Latency: When a new package arrives, it has to wait to the full queue get processed before its time, this way the package spent extra time waiting in the queue.
+The latency a packet experiences in a network is made up of transmission
+delay(the time it takes to send it across communications links), processing
+delay(the time each network element spends handling the packet) and queuing
+delay(the time spent waiting to be processed or retransmitted). But large
+buffers only increases latency, and this only causes conflict with the needs
+of now days applications.
 
-large buffers only increases latency, and this only causes conflict with the needs of real time applications.\\
+Once packets in-fly reach a bottleneck, they begin to spooling. Because the
+characteristics already explained, more and more packets are coming, and this
+queue continues to increase, which leads that each new arriving packet spends
+more time through the queue than the predecessor packet, which means an
+increase in the latency. Then, eventually, packets start to be dropped,
+notifying the hosts of the presence of congestion on the path.
 
-the latency a packet experiences in a network is made up of transmission delay(the time it takes to send it across communications links), processing delay(the time each network elemetn spends handling the packet) and queueing delay(the time spent waiting to be processed or retransmitted)
+As stated in \cite{Dischinger2007CRB}, it is quite common to find these high-
+latency queues in the last mile. The causes can be many, but among the most
+common are both link quality at homes, as different implementations of traffic
+shaping methods implemented by ISPs, or massive buffers set by the latter to
+avoid loss of data, which can add a delay of up to several milliseconds.
+Bottlenecks at the Internet's edge can easily move between the wireless
+access(when its bandwidth is slow) and the provider's up-link, both of which
+can have highly variable bandwidths.
 
-
-
-effects on residential internet \cite{Dischinger2007CRB}
-It is well know that residential networks are often the bottleneck in the last
-mile access to the Internet Infrastructure. This could be because the ISP's of
-both of the most popular ways to access (DSL and cable networks) to internet
-today, use traffic shaping methods and ,as seen in previous sections, deploy
-massive queues that can delay packets for several hundred milliseconds.\\
-
-Both shares the asymmetric bandwidths; they downstream bandwidth is higher than
-their upstream bandwidth, but in cable networks a single coaxial cable shares
-multiple customers, they can concatenate multiple upstream packets into a single
-transmission, which result in short bursts at high data rates, so the latency
-can heavily fluctuate. This concatenation can produce a jitter time, that under
-high network load can be higher than end-to-end jitter over the entire path
-under normal load, which can be produce a miss interpretation for some protocols
-of incipient congestion and cause to enter into congestion control avoidance too
-early.\\
-
-In the other hand, in DSL networks, the maximum data transmission
-rate falls with increasing distance from the head, thus in order to boost the
-transmission rate, DSL relies on advanced signal processing and error correction
-algorithms which can lead to high packet propagation delays .\\
-
-
-bottlenecks at the internet's edge can easily move between the wireless access(when its bandwidth is slow) and the provider's uplink, both of which can have highly variable bandwidths.
-
-
-with buffering, once packets reach a choke point, they start to queue. If more packets come in than can be transmitted, the queue lengthens. Hte more packets in the queue, the higher the latency. Eventually packets are dropped, notify the communications protocol of congestion.
-
-
-
+For networks that use coaxial cable, multiple clients concatenated their
+upward flows in a single transmission, resulting in a burst with a large
+volume of data, which can led to a high fluctuation in latency. This
+concatenation can also generate jitter time,which can be produce a miss
+interpretation for some protocols of incipient congestion and cause to enter
+into congestion control avoidance too early. The other type of highly used
+networks are the DSL, which the more distance is between the supplier reduces
+its transmission rate. That is why it is needed advanced signal processing and
+error correction algorithms which can lead to high packet propagation delays.
