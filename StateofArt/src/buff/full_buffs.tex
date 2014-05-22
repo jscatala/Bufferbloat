@@ -1,15 +1,20 @@
 %	1.- Full buffers: Couse no signals buffers at the right time, the buffers are always full
-Packet networks require buffers to absorb short-term arrival rate fluctuations. Although essential to the operation of packet networks, buffers tend to fill up and remain full at congested links, contributing to excessive traffic delay and losing the ability to perfom their intended function of absorbing bursts.
+Packet networks require absorb bursty arrivals that TCP performs in order to
+communicate two hosts. When received, a packet is immediately validated, but
+not necessarily immediately processed and transferred out without kept in a
+buffer. That means that if the rate at which packets are received is greater
+than delay that takes to process and remove a package from the buffer, it
+tends to fill up\footenote{When this occurs, the receiving device may need to
+adjust window size to prevent the buffer from being overloaded.} and stay
+congested, contributing to excessive traffic delay and losing the ability to
+perfom their intended function of absorbing bursts.
 
-Queues occurs in the buffers as a results of short-term mismatches in traffic arrival and departure rates that arise from upstream resource contention, transport conversation startup transients, and/or changes in the number of conversations sharing a link.
+This standing queue is the essence of Bufferbloat and is the result of the
+difference between the window and the bandwidth of the link, only creating
+long delays in communication, but no benefit in overall throughput. \texit{It
+is not a phenomenon threated by queue or traffic theory, which, unfortunately,
+results in it being almost universally misclassified as congestion(a
+completely different and much rared pathology)}\cite{CACMStaff}.
 
-in bottleneck, as each packet is squeezed down in bandwidth, it must strech out in time since its size stays constant
-
-this bottleneck-induced waiting is what creates the queues that from in the packet buffers at the link.
-
-This standing queue, resulting from a mismatch between the window and pipe size, is the essence of bufferbloat. It creates large delays but no imporvement in throughput. It is not a phenomenon threated by queue or traffic theory, which, unfortunately, results in it being almost universally misclassified as congestion(a completely different and much rared pathology)
-
-in the basic sliding windows system, data is acknowledged when received, but not necessarily immediately transferred out of the buffer. This means that is possible for the buffer to fill up with received data faster than the receiving TCP can empty it. When this occurs, the receiving device may need to adjust window size to prevent the buffer from being overloaded.
-
-
-Filling these buffers would  cause delay to increase, and persistently full buffers lack the space to absorb the routine burstiness of a packet network.
+When the packet reach a bottleneck queue, is squeezed down in bandwidth but
+must strech out in time since its size stays constant.
