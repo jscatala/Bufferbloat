@@ -11,7 +11,7 @@ sites that have a high level of resource utilization like Youtube, Facebook or
 Netflix, have made networks of today are quite different from those that
 formerly existed, but still running the same protocols\footnote{While many
 have been updated, the basics remain the same}. If that was not enough, the
-creation and incorporation of new devices such as cell phones, tablet and even
+creation and incorporation of new devices such as smart phones, tablet and even
 smart-watch with the ability to transmit data over the Internet, the more
 necessary efficient and properly handling the wealth of information is
 becoming
@@ -37,4 +37,14 @@ But the path on Internet are shared by multiple TCP streams so the buffers,
 and this back-off behavior has a tendency to synchronize flows
 \cite{main:ref:1}. This cause all the flows to throttle back their
 transmission rates simultaneously, amplifying the effect. This decrease in
-latency and reduced throughput are the effects of Bufferbloat phenomenon
+latency and reduced throughput are the effects of Bufferbloat phenomenon.
+
+As stated in \cite{GettysNichols}, \textit{long delay from Bufferbloat are
+frequently misattributed to insufficient bandwidth and this misinterpretation
+of the problem leads to the wrong solutions being proposed}. As seen in the
+past sections, the packet loss for TCP is not in itself a problem, conversely
+it is essential for its functioning. The real problem is  the excessive and
+consecutive packet losses that occurs when the buffers kept persistently
+fulls. This effects may cause that modern applications timeout their
+connections or in others users may experience some delay. This is the real
+effects and problems of Bufferbloat.

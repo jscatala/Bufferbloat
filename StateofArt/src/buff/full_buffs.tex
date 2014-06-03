@@ -4,14 +4,14 @@ communicate two hosts. When received, a packet is immediately validated, but
 not necessarily immediately processed and transferred out without kept in a
 buffer. That means that if the rate at which packets are received is greater
 than delay that takes to process and remove a package from the buffer, it
-tends to fill up\footenote{When this occurs, the receiving device may need to
+tends to fill up\footnote{When this occurs, the receiving device may need to
 adjust window size to prevent the buffer from being overloaded.} and stay
 congested, contributing to excessive traffic delay and losing the ability to
 perfom their intended function of absorbing bursts.
 
 This standing queue is the essence of Bufferbloat and is the result of the
 difference between the window and the bandwidth of the link, only creating
-long delays in communication, but no benefit in overall throughput. \texit{It
+long delays in communication, but no benefit in overall throughput. \textit{It
 is not a phenomenon threated by queue or traffic theory, which, unfortunately,
 results in it being almost universally misclassified as congestion(a
 completely different and much rared pathology)}\cite{CACMStaff}.
