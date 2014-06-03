@@ -1,5 +1,5 @@
 \documentclass[letter, 11pt]{article}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsfonts, amsmath, amsthm, amssymb}
 \usepackage[dvips]{graphicx}
@@ -90,7 +90,20 @@
 \input{src/tcp/phases}
 %end TCP
 
-%\newpage
+\newpage
+
+%section Buffers 
+\section{Router's Buffers effects}
+\input{src/buff/buffs}
+\subsection{Full Buffers}
+\input{src/buff/full_buffs}
+\subsection{High Latency}
+\input{src/buff/latency}
+\subsection{Sizing Router's Buffers}
+\input{src/buff/sizing}
+%end Buffers
+
+\newpage
 
 %section AQM
 \section{Active Queue Management}
@@ -105,11 +118,6 @@
 
 \newpage
 
-%section Buffers 
-\section{Interaction with Buffers}
-%end Buffers
-
-\newpage
 %Flaws
 \section{Hidden Flaws and Bufferbloat}
 \input{src/tcp/flaws}
@@ -156,13 +164,9 @@ ia
 %end section Test
 \newpage
 %section Test
-\section{Conclusions}
+\section{Conclusions and Further Work}
 \input{src/conclusions}
 %end section Conclusions
-\newpage
-%section Further
-\section{Further Work}
-\input{src/further}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendix}
