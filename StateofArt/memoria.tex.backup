@@ -176,14 +176,12 @@ ia
 \begin{appendix}
 \section{Definitions}\label{app:definitions}
 \input{src/app/defs}
-\newpage
-\section{Speed Test Details results}\label{app:bwmeasures}
+\section{Speed Test results}\label{app:bwmeasures}
 \input{src/app/bwmeasures}
-\newpage
 \section{Page Benchmark results}\label{app:pbmeasures}
 \input{src/app/benchmark_app}
-\end{appendix}
 \newpage
+\end{appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %incluyo referencias
 \bibliography{references,rfc}{}

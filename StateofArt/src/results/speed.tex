@@ -1,24 +1,72 @@
-Here goes the information related to test speed getting the differences and results gathered by this tests.\\
-
-Will be a table with the current speed and pings. Also will be difference table with the speed that must has.\\
+As expected, in all cases the networks were asynchronous, being significantly
+higher the bandwidth related to the download (the downlink) than the uploading
+or uplink. This also explains the relationship between the uplink and ping,
+presenting a major ping in the networks with lower uplink. The relationship
+can be better be seen in the figure \ref{fig:speeds}.
 
 \begin{figure}[ht]
-\begin{minipage}{6cm}
 \centering
-	\rule{5.5cm}{7.1cm}
-    %\includegraphics[width=0.48\textwidth]{img/cubic}
+	%\rule{5.5cm}{7.1cm}
+    \includegraphics[width=0.9\textwidth]{img/speed_graph}
 \caption{Speed and Pings based on Appendix \ref{app:bwmeasures}, Table \ref{table:speeds}}
 \label{fig:speeds}
-\end{minipage}%
 \end{figure}%
 
-\begin{figure}[ht]
-\begin{minipage}{6cm}
-\centering
-	\rule{5.5cm}{7.1cm}
-    %\includegraphics[width=0.48\textwidth]{img/cubic}
-\caption{Variation ratio of offered vs measured speed based on Appendix \ref{app:bwmeasures}, Table \ref{table:ratiospeed}}
-\label{fig:ratiospeeds}
-\end{minipage}%
-\end{figure}%
+The figure \ref{fig:speeds} also is a prove of the common missundersanding
+about the how the ISP's promote high download speeds but with low uplink. Even
+though most of the time home users download content, in order to keep a good
+ratio the data needs to flow between both sides, because due the way TCP
+works, you need good communication in both directions. While in theory this
+works without major problems, unfortunately in reality users download content
+from different sources at once, and if we add the new requirements like in
+real-time  or on-demand applications and online games, we see that not only a
+high downlink is important.
 
+Another important point is the growing need for higher bandwidth capacity.
+Unfortunately it is common to associate bandwidth with speed. Instead,
+bandwidth is a measure of capacity, not how fast the network responds. Then,
+more capacity is only better if the existing latency is lower. This may
+explain why the tests performed in network tagged as \textit{``casa''} can have low pings
+even when its capacity is close to the mean, but this network is through
+fiber\footnote{In practice, fiber service have a propagation delay 10 times
+faster than ASDL service}.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c||c|c||}
+ \hline
+& \multicolumn{2}{|c|}{Ratio (\%)} \\ \hline
+Location	& Uplink		& Downlink \\ \hline \hline
+casa\_w		& 99			& 103,2 \\ \hline
+casa2\_w	& 101,8			& 89,73333  \\ \hline
+casa\_c		& 103			& 102,9333  \\ \hline
+marcia\_w	& 166			& 63  \\ \hline
+marcia\_c	& 166			& 62,9  \\ \hline
+sara\_w		& 112			& 54,5  \\ \hline
+sara\_c		& 114			& 80,8 \\ \hline
+polmos\_w	& 116			& 49,025  \\ \hline
+polmos2\_w 	& 117			& 46,8  \\ \hline
+nalucem\_w	& 114			& 99,25  \\ \hline
+nalucem2\_w & 112			& 101,5  \\ \hline
+mbahamon\_w & 120			& 102,1  \\ \hline
+4low\_w	 	& 120			& 80,3  \\ \hline
+hidalgo\_w 	& 119			& 89,8  \\ \hline
+\end{tabular}
+\caption[Speed Test: Variation ratio of offered vs measured speed ]{Variation ratio of offered vs measured speed.}
+\label{table:ratiospeed}
+\end{center}
+\end{table}
+
+The $\sim12ms$ ping were also not obtained, but the values ​​are still within
+the acceptable range around the $\sim26ms$. These values ​​may be due to
+factors such as congestion, conditions on the server, or the processing time
+information. The variation of the ratio between the measured and the bandwidth
+contracted is of 80\%, which is only 6\% less than the spected
+value\footnote{Details of the provider and bandwidths can be found on Appendix
+\ref{app:bwmeasures}, Table \ref{table:comparative}}.
+
+Further analysis is needed to determinate how the bandwidth is related with
+the bufferbloat, but it is clear that less the bandwidth, higher the ping, but
+it can not be stated the oppossite, higher the bandwidth, less the ping
+becouse it also depends on how fast the network is and the effects in the
+latency \cite{main:ref:3}.

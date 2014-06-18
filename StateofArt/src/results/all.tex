@@ -1,1 +1,48 @@
-all test
+The results are synthesized and in order to analyze them comprehensively. With
+the first test gave us the data capable to define the bandwidth of each
+network with which subsequently went to work. Overall the upload link (uplink)
+behaved as expected, performing in some cases gains of up to 50\% or more than
+contracted. Obviously this could be due to generally low values ($\sim1Mbps$)
+are therefore at a small variance is expressed as a high variation ratio. For
+networks with greater uplink, between 1 and 5 Mbps also showed good
+performance. On the other hand, the downlink reveal more variation between the
+contracted and obtained. The circumstantial differences between a network with
+good behavior to those with certain problems got reflected at this point. A
+special case was the network \textit{polmos}. Strangely after tested with two
+different Operative Systems (but on the same computer) never show results near
+the contracted value was obtained; not with other devices, where exhibit
+values around the 40Mbps. The range values for the ping was not as expected,
+but they still accepted values without being detrimental to smooth navigation
+with a use that does not cause an excessive stress to the system.
+
+With Netalyzr is possible to obtain a clearer idea of the fundamentals and the
+inner workings of networks. Also most revealing information was obtained from
+the theoretical perspective, the existence of Bufferbloat obtaining
+approximate times of the duration of the buffers present in these networks.
+This results was the most important for the continuity of the study, mainly
+because it proceeded to rule out or find problems associated with other
+factors, for example a defective router (as in the case of \textit{mbahamon})
+or environmental interference.
+
+Iperf revealed to us the behavior of the networks trying to use their full
+capacity. Also checked the behavior of the protocols and the different phases
+that they have (slow start and congestion avoidance periods). While this was
+not within the objectives of the study, witness the behavior helped to verify
+that the operating level protocols, were working as expected. Along with this,
+it helped to ensure that the presence of buffers is lethal when trying to make
+a fluid exchange data with a high level of network utilization.
+
+The simulation of the experience gained by a user when trying to load a
+website under periods of low and high loads also can enable to understand
+better the effects of Bufferbloat. While the trend was already well defined by
+the above tests, individual results included in the study were obtained, but
+defined as outlayers, such as occurred in the network \textit{polmos\_w} where
+a maximal value was obtained in the last iteration, which were expected  to be
+more alike to the first iteration.
+
+If it is believed that due to Bufferbloat the times was increased, thanks to
+smokeping got demonstrated that not only increase considerably, but almost
+impossible to web surf or almost very difficult to think in online games with
+good performance. The resulting loss and increased latency are considerable
+reaching about 12 times the initial value, and growing to 100\% loss
+communication.
