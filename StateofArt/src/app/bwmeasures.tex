@@ -3,43 +3,48 @@
 \begin{center}
 \begin{tabular}{|c||c|c|c|c|}
 \hline
-Location  & Medium  & Downlink (Mbps) & Uplink (Mbps) & Ping (ms)\\ \hline\hline
- 4low     & Wireless & 0,6            & 8,03          & 29 \\ \hline       % vtr 0,5x10%
- mbahamon & Wireless & 0,6            & 10,21         & 24 \\ \hline       % vtr 0,5x10%
- mhbrisas & Wireless & 1,19           & 17,96         & 19 \\ \hline       % vtr 1x20%
- mgallard & Wireless & x              & x             & x \\ \hline        %%
- garriag  & Wireless & x              & x             & x \\ \hline        %%
- casa     & Wireless & 4,95           & 15,48         & 18 \\ \hline       % mov 5x15%
- casa2    & Wireless & 5,09           & 13,46         & 20 \\ \hline       % mov 5x15%
- polmos   & Wireless & 2,32           & 19,61         & 26 \\ \hline       % vtr 2x40%
- polmos2  & Wireless & 2,34           & 18,72         & 22 \\ \hline       % vtr 2x40%
- nalucem  & Wireless & 0,57           & 3,97          & 35 \\ \hline       % mov 0,5x4%
- nalucem2 & Wireless & 0,56           & 4,06          & 36 \\ \hline       % mov 0,5x4%
- mcatala  & Wireless & x              & x 			  & x \\ \hline        %%
- mcatala2 & Wireless & x              & x 			  & x \\ \hline        %%
+Location  & Medium  & Uplink (Mbps) & Downlink (Mbps) & Ping (ms)\\ \hline\hline
+ casa\_w     & Wireless & 4,95           & 15,48         & 18 \\ \hline       % mov 5x15%
+ casa2\_w    & Wireless & 5,09           & 13,46         & 20 \\ \hline       % mov 5x15%
+ casa2\_c    & Cable    & 5,15           & 15,44         & 19 \\ \hline       % mov 5x15%
+ marcia\_w	& Wireless & 0,83	        &  6,3			& 29 \\ \hline
+ marcia\_c	& Cable    & 0,83	        &  6,29	        & 29 \\ \hline
+ sara\_w	    & Wireless & 0,56	        &  5,45	        & 31 \\ \hline
+ sara\_c	    & Cable    & 0,57	        &  8,08	        & 30 \\ \hline
+ polmos\_w   & Wireless & 2,32           & 19,61         & 26 \\ \hline       % vtr 2x40%
+ polmos2\_w  & Wireless & 2,34           & 18,72         & 22 \\ \hline       % vtr 2x40%
+ nalucem\_w  & Wireless & 0,57           & 3,97          & 35 \\ \hline       % mov 0,5x4%
+ nalucem2\_w & Wireless & 0,56           & 4,06          & 36 \\ \hline       % mov 0,5x4%
+ mbahamon\_w & Wireless & 0,6            & 10,21         & 24 \\ \hline       % vtr 0,5x10%
+ 4low\_w     & Wireless & 0,6            & 8,03          & 29 \\ \hline       % vtr 0,5x10%
+ hidalgo\_2  & Wireless & 1,19           & 17,96         & 19 \\ \hline       % vtr 1x20%
 \end{tabular}
 \end{center}
 \label{table:speeds}
 \end{table}
 
 \begin{table}[ht]
-\caption[Speed Test: Variation ratio of offered vs measured speed ]{Variation ratio of offered vs measured speed.}
+\caption[Speed Test: Measured and Contracted Speed ]{Measured and Contracted Speed.}
 \begin{center}
-\begin{tabular}{|c||c|c|}
+\begin{tabular}{|c|c||c|c||c|c||}
 \hline
-Location   & Uplink ratio & Downlink ratio \\ \hline \hline
- 4low      & 120,00       & 80,30  \\ \hline 
- mbahamon  & 120,00       & 102,10 \\ \hline 
- mhbrisas  & 119,00       & 89,80  \\ \hline 
- mgallard  & 0,00         &	0,00   \\ \hline 
- garriag   & 0,00         & 0,00   \\ \hline 	
- casa      & 99,00        & 103,20 \\ \hline 
- casa2     & 101,80       & 89,73  \\ \hline 
- polmos    & 116,00       & 49,03  \\ \hline 
- polmos2   & 117,00       & 46,80  \\ \hline 
- nalucem   & 114,00       & 99,25  \\ \hline 
- nalucem2  & 112,00       & 101,50 \\ \hline 
+&&\multicolumn{2}{|c||}{Measured (Mbps)} & \multicolumn{2}{|c||}{Contracted (Mbps)} \\ \hline	
+Location	& Provider	& Uplink 	  	 & Downlink  &	Uplink	& Downlink \\ \hline \hline 
+casa\_w		& Movistar	& 4,95			 & 15,48	 & 5		& 15 \\ \hline 
+casa2\_w	& Movistar	& 5,09			 & 13,46	 & 5		& 15 \\ \hline 
+casa\_c	 	& Movistar	& 5,15			 & 15,44	 & 5		& 15 \\ \hline 
+marcia\_w	& VTR		& 0,83			 & 6,3 	 	 & 0,5		& 10 \\ \hline 
+marcia\_c	& VTR		& 0,83			 & 6,29	 	 & 0,5		& 10 \\ \hline 
+sara\_w		& Movistar	& 0,56			 & 5,45		 & 0,5		& 10 \\ \hline 
+sara\_c		& Movistar	& 0,57			 & 8,08		 & 0,5		& 10 \\ \hline 
+polmos\_w	& VTR		& 2,32			 & 19,61	 & 2		& 40 \\ \hline 
+polmos2\_w	& VTR		& 2,34			 & 18,72	 & 2		& 40 \\ \hline 
+nalucem\_w	& Movistar	& 0,57			 & 3,97	 	 & 0,5		& 4 \\ \hline
+nalucem2\_w	& Movistar	& 0,56			 & 4,06		 & 0,5		& 4 \\ \hline
+mbahamon\_w	& VTR		& 0,6 			 & 10,21	 & 0,5		& 10 \\ \hline
+4low\_w		& VTR		& 0,6			 & 8,03		 & 0,5		& 10 \\ \hline
+hidalgo\_w	& VTR		& 1,19			 & 17,96	 & 1		& 20 \\ \hline
 \end{tabular}
 \end{center}
-\label{table:ratiospeed}
+\label{table:comparative}
 \end{table}
