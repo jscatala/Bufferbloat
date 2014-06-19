@@ -21,15 +21,15 @@ third where added, the \textit{fast retransmit and fast recovery}.
   \begin{center}
     \includegraphics[width=0.48\textwidth]{img/slowstart}
   \end{center}
-  \caption{The Chronology of a Slow-Start.\cite{JacobsonCAC}}
+  \caption[The Chronology of a Slow-Start.]{The Chronology of a Slow-Start.\cite{JacobsonCAC}}
   \label{fig:slowstart}
 \end{wrapfigure}
 
 The idea behind bandwidth occupancy in TCP is to use as much as it is allow to
 use. With this in mind, slow start proves the network by increasing
-exponentially the rate of how many packets sends; the congestion window is
+exponentially the rate of how many packets sends; the \gls{cwin} is
 increases by one packet and adds another for each packet acknowledged. This
-behavior continues until the slow start threshold (ssthrsh) is reached or
+behavior continues until the \gls{ssthrsh} is reached or
 congestion is signaled. If congestion is detected, the slow start threshold is
 reset to half of the amount of congestions window, at the time that congestion
 window is reset to a size of one segment, and slow start is restarted. In case
@@ -70,11 +70,11 @@ operating systems will be mentioned: CUBIC and Compound TCP.
 
 \paragraph{CUBIC TCP}  is the default implementation for congestion control in
 the Linux kernel since 2.6.19. \textit{Scaling the window growth rate to match
-large BDP\footnote{View definition in appendix \ref{app:definitions}} is rather
-straightforward, tackling the fairness issues of new protocols has remained as
-a major challenge.  Although BDP implies the network capacity by packet
-count(or window size), packet count is not adequate to characterize TCP
-performance because growth rate of TCP depends on RTT}\cite{HaCubic}.
+large \gls{BDP} is rather straightforward, tackling the fairness issues of new
+protocols has remained as a major challenge.  Although BDP implies the network
+capacity by packet count(or window size), packet count is not adequate to
+characterize TCP performance because growth rate of TCP depends on
+RTT}\cite{HaCubic}.
 
 Because the basis of their growth is a cubic function (hence its name), has a
 less aggressive behavior than their predecessors, while retaining excellent

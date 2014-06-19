@@ -14,7 +14,7 @@ sufficient to maintain a threshold above which the tail can not exceed rather
 than keeping a window of values to compute the minimum. Rather than measuring
 queue size in bytes or packets, it is used the packet-sojourn time through the
 queue. The time each packet spends in the queue is independent of the
-transmission rate, the sojourn is more valuable information about the behavior
+transmission rate, the \gls{sojourn} is more valuable information about the behavior
 of the buffer, in addition to being much more related to the effects you may
 experience. The sojourn is based on a timestamp corresponding to when the
 packet arrive to the queue, at which this mark is added to the package
@@ -23,7 +23,7 @@ dequeued.
 
 Another difference that occurs is that CoDel accepts the existence of queues,
 but it is unacceptable to drop packets when you have a buffer with less than
-MTU's bytes.
+\gls{MTU}'s bytes.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     \centering
