@@ -2,7 +2,7 @@ Random Early Detection or RED is the algorithm introduced in
 \cite{FloydJacobsonRED}. RED monitors the average queue size and when it
 exceeds a preset threshold, the router drops the arriving packet with a
 certain probability, where the exact probability is a function of the average
-queue size. If ECN is active, the packets are choose randomly and marked. When
+queue size. If \gls{ECN} is active, the packets are choose randomly and marked. When
 a connection uses a larger share of available bandwidth, it is more likely to
 be marked. The idle periods (periods when the queue is empty) are also take
 into account for the calculations of the average queue size.
@@ -32,9 +32,9 @@ windows. Also, in routers where RED and ECN are implemented the bursty traffic
 is well handled and the global synchronization between flows is avoided by
 decreasing their window at the same time.
 
-The most common critics to RED is its complexity to properly configure its
+The most common critic to RED is its complexity to properly configure its
 parameters. It is because of this that after their official publication, it
-was necessary to perform the second publication \cite{NotesRED}, which aims to
+was necessary to perform a second publication \cite{NotesRED}, which aims to
 explain a few more details on how to configure it properly. Since RED rely on
 queue length as index of congestion, it can reflect the presence of congestion
 but not the severity nor the numbers of competing connections sharing the

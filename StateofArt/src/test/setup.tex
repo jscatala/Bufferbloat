@@ -37,11 +37,11 @@ The wireless adapter is a AIR-802 USB adapter with Zydas chipset and a TP-link
 hooked to the physical machine without the USB extension, this way any extra
 signal  loss is avoided. 
 
-\item[Iperf Server]: \hfill \\
-This machine will be used as a server for the Iperf test. This is a VPS hosted
-by Digital Ocean \footnote{\url{https://digitalocean.com}} with 512MB Ram,
-20GB SSD Disk, and located in New York data center. This machine runs Ubuntu
-12.04.3 x64 under KVM software using as a processor an Intel Hex-Core 3 GHz.
+\item[Iperf Server]: \hfill \\ 
+This is a VPS hosted by Digital Ocean
+\footnote{\url{https://digitalocean.com}} with 512MB Ram, 20GB SSD Disk, and
+located in New York data center. This machine runs Ubuntu 12.04.3 x64 under
+KVM software using as a processor an Intel Hex-Core 3 GHz.
 
 \end{description}
 
@@ -60,5 +60,5 @@ For the tests, the Bufferbloat community\cite{bloat} has created a set of best
 practices\cite{tg12} to follow so the results are consistent and repeatable, 
 but in this case, computers and routers will not be modified as it will attempt 
 to analyze what an every-day-user experience. Those practices will be taken in 
-consideration if it is the QOS present in routers and deactivate it.
+consideration if it is the QOS present in routers and deactivate as recommended.
  

@@ -1,13 +1,14 @@
-After several years using based on the average queue size, Nichols and Van
-Jacobson algorithms realized that this approach although they have information
-of congestion, no hard data on how serious is this. Jacobson et al, determined
+After several years using algorithms based on the average queue size, Nichols
+and Van Jacobson realized that this approach although they have information of
+congestion, no hard data on how serious is this. Jacobson et al, determined
 that it may submit two types of queues: one that smooths bursts of arriving
 packets turning it into a stable and continuous sent and tends to last less
 than one RTT (called good queues); and those that only tend to create
-excessive delays and lasting several RTTs (bad call queues). With this they
+excessive delays and lasting several RTTs (bad call queues). With this, they
 were able to determine that the core of bufferbloat detection problem is
-separating good from bad queues. Bearing in mind the above is that the
-algorithm is controlled delay or CoDel by its acronym were developed.
+separating good from bad queues. Bearing in mind the above is that an
+algorithm called \textit{Control delay} or CoDel by its acronym were
+developed.
 
 Presented in \cite{NicholsJacobsonCQD}, CoDel is based on the idea that it is
 sufficient to maintain a threshold above which the tail can not exceed rather
@@ -34,7 +35,7 @@ but it is unacceptable to drop packets when you have a buffer with less than
 \end{wrapfigure}
 
 But when the queue delay has exceeded target for at least interval, a packet
-is dropped and a control law sets the next drop time accordingly to
+is dropped and a control law sets the next drop time accordingly to Figure
 \ref{fig:CoDeldroptime}. The ways in which CoDel stops packet drop is either
 when the delay queue is less than the target value or when the buffer contains
 less than MTU's bytes. Furthermore the algorithm has additional logic that

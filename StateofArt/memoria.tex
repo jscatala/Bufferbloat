@@ -80,6 +80,8 @@ determines the number of bytes that can be outstanding at any time. It
 prevents the overload of the link with too much traffic. The size is
 calculated by estimating how much congestion there is between the two places.}}
 
+\newglossaryentry{ECN}{name={Explicit Congestion Notification (ECN)}, description={Defined in RFC 3168. ECN allows end-to-end notification of network congestion without dropping packets. ECN is an optional feature that may be used between two ECN-enabled endpoints when the underlying network infrastructure also supports it.}}
+
 \newglossaryentry{LFN}{name={Long Fat Network (LFN)},description={A network with a large bandwidth-
 delay product. Often $>> 10^5$ bits (12500 bits). }}
 
@@ -135,10 +137,6 @@ correction, etc. }}
 \newpage
 
 %section TCP
-%subsection{The TCP Protocol \cite{rfc793}\cite{rfc2001}}
-%subsubsection{Slow-Strart Algorithm\cite{rfc879}\cite{rfc2460}}
-%subsubsection{The Congestion Avoidance Algorithm \cite{rfc2309}\cite{rfc2581}}
-%
 \section{The Transport Control Protocol}
 \input{src/tcp/tcp}
 
@@ -196,7 +194,7 @@ correction, etc. }}
 
 \subsection{Test Description}
 \input{src/test/description}
-ia	
+	
 %end section Test
 \newpage
 %section Results

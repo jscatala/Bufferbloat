@@ -27,15 +27,15 @@ The idea under this test, is to set a baseline by comparing the speed offered
 by the ISP and the one at the moment of testing. To find the speed provided, 
 the  tool used is the Speedtest in the web site of Ookla.
 
-The benefits of using this web sites is that not only it will reveal not only
-the available the national uplink and downlink, also it will set the baseline
+The benefits of using this web site is that not only it will reveal only
+the available national uplink and downlink, also it will set the baseline
 for the ping. The expected pings, independently of the connection bandwidth,
 should be around $\sim12ms$, based on the data presented in \cite{netvtr} and
 \cite{netmov} by the two most used ISP in Chile\footnote{Telef\'onica has a
 39.2\% market share while VTR owns 38.8\% respectively. \cite{ispshares}}.
 
 As data, it is estimated that the ratio of the average speed as compared to the
-rated speed of the service offered for domestic bonds has a variation of 85\%,
+rated speed of the service offered for domestic bonds has a variation to 85\%,
 while for international links decreases drastically to 35\%\cite{modcompqos}.
 Due this factor, none of the tests will be performed on servers located outside
 our country, as it is believed that the data will not very representative
@@ -45,13 +45,13 @@ regarding actual service.
 After characterize our network based on the
 speed, it is needed to try to define the state of the service based on the
 quality in which our network operates, in example: what kind of traffic is
-passing through our network, and give also get a little more detail on the
+passing through our network, and also get a little more detail on the
 average rates of delay and buffers with which the traffic can find along the
 path. To collect all this information will be used Netalyzr. 
 
 While laws present in Chile assure consumers networks free of traffic shaping
 barriers and filters, ISPs apply traffic management
-measures\cite{shapevtr}\cite{shapemov} to deliver an optimum experience of the
+measures\cite{shapemov}\cite{shapevtr} to deliver an optimum experience of the
 service's use and thus, achieve an efficient use of the network, thus further to
 protect the safety of users while maintaining network stability.
 
@@ -60,14 +60,14 @@ completely blocked, but the most important is that this test will first light on
 the existence of the phenomenon under study.
 
 \subsubsection{Collapse test} 
-Already having a clear idea of the stat of the studied network, the next will be
-try to check empirically that the results obtained by the previous test above
-described are valid. For this, Iperf will be used to generate as much traffic as
-possible for 5 minutes between servers (both national and international). But
-the main goal is not to measure the throughput of the network; instead to
-capture the packets that Iperf produces and study them. So before run Iperf,
-tcpdump will capture this information. Subsequently, the tcp's trace is taken
-and extracted with tcptrace tool and generate the RTT graph.
+Already having a clear idea of the state of the studied network, the next will
+be try to check empirically that the results obtained by the previous test
+above described are valid. For this, Iperf will be used to generate as much
+traffic as possible for 5 minutes between servers. But the main goal is not to
+measure the throughput of the network; instead to capture the packets that
+Iperf produces and study them. So before run Iperf, tcpdump will capture this
+information. Subsequently, the tcp's trace is taken and extracted with
+tcptrace tool and generate the RTT graph.
 
 This exercise will be conducted three times as part of the test, running the
 first time as the sole source of network load. For the second and third time,
@@ -78,13 +78,13 @@ the upstream link, leading to an overload of existing buffer (indistinct
 whether the server is national or not, there are several levels where the 
 route is common). The upload will be stopped 50 seconds before the time limit.
 
-The time gap established before loading and the end of the test is to let Iperf 
-Iperf frames reach a steady state flow and thus to generate a basis on
-which to analyze the time when the traffic is maximum.
+The time gap established before loading and the end of the test is to let
+Iperf frames reach a steady state flow and thus to generate a basis on which
+to analyze the time when the traffic is maximum.
 
 The expected RTT are around $\sim12ms$ and $\sim100ms$ without load, for
 national and international servers respectively. About the expected value under
-load, it is hard to estimated, further that their expected behavior is 
+load, it is hard to estimate, further that their expected behavior is 
 to be stable round a certain value. In case of no stable behavior, the possible 
 causes will be analyzed and tracked.
 
@@ -100,7 +100,7 @@ and after 30 seconds from the start of the load, and with the load active, will
 proceed to a second iteration. The third will begin the after a minute,
 canceling the file upload and after waiting 30 seconds after cancel the upload,
 the benchmark will be measured again. The fourth and fifth will be a minute and
-a half since the previous iteration have finished. The site chosen is
+a half of a minute since the previous iteration have finished. The site chosen is
 \url{http://www.usm.cl}.
 
 As like Jim Gettys showed in his video demonstration\cite{gettysex}, the 
@@ -118,10 +118,10 @@ which have different connection settings and/or type of services (some servers
 has dedicated link), and located in both Chile and the United States.
 
 The tool will be left couple of minutes to track and save the state of the
-connection under no load(except the required for testing). After that, a upload
-of a big file will be performed from a second machine until it finish or the
-behavior has become stable and then re-enter to a phase without load for couple
-of more minutes and repeat the upload.
+connection under no extra load (only the test machine will be generating
+data). After that, a upload of a big file will be performed from a second
+machine until it finish or the behavior has become stable and then re-enter to
+a phase without load for couple of more minutes and repeat the upload.
 
 With this test, in addition to verifying the validity of the previously captured
 data is expected to determine the presence of other factors that can contribute

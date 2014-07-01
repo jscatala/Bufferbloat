@@ -34,6 +34,8 @@ in it being almost universally misclassified as congestion. The \textit{\gls{Buf
 problem, making the window match the pipe size, is hard to address. Window
 sizes are chosen by senders while queues manifest at bottleneck gateways.
 
+
+As mentioned by Jim Gettys and Kathleen Nichols;
 \textit{Today's networks are suffering from unnecessary latency and poor
 system performance. The culprit is Bufferbloat, the existence of excessively
 large and frequently full buffers inside the network. Large buffers have been
@@ -66,21 +68,21 @@ In order to archive theses objectives is needed:
 In Chapter 2, it will be explained the basis on which TCP was developed and
 the fundamentals for the current operation of the Internet. The conservation
 principle upon which are based all communication protocols will be explained.
-Explain further each of the four phases consisting TCP.
+Also, explain each of the four phases consisting TCP.
 
 In Chapter 3 we will review one of the most important components for the
 communication and the main place where the packages are stored: the Routers.
-It will be analyzed how these queues that have a destructive size for
+It will be analyzed how their queues have a destructive size for
 communication, why they are stalled at full capacity and cause a excessive
 latency. Also consider how the appropriate size to hold the buffers that are
 located in a router is defined.
 
-Chapter 4 presented a technique developed to deal more efficiently and
+Chapter 4 presented a technique developed to deal more efficiently with
 actively congestion that could generate not only on endpoints but also on
 routers. This technique is Active queue management (AQM). How the first
-algorithms, algorithms such as RED and BLUE, were implemented and mention
-CODEL which aims to solve the Bufferbloat phenomenon; This failures points
-both TCP and AQM are synthesized and analyze. This will be presented in
+algorithms, such as RED and BLUE, were implemented and mention
+CODEL which aims to solve the Bufferbloat phenomenon; This failures points,
+in both TCP and AQM, are synthesized and analyze. All this will be presented in
 Chapter 5.
 
 Chapter 6 aims to define the methodology and tools that will be used to
