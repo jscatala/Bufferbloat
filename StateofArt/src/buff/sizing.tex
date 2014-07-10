@@ -31,8 +31,8 @@ from the sender shows up at the buffer just as it hits empty.
 
 After a lost is detected, the $cwnd$ is set to half of is last value, so if we
 denote as $(W_{max} /2)/C$ the amount of time that packets are sent in
-congestion phase, and as $B/C$ the time that takes a buffer with size B to
-drain, the size of a buffer B needed is $B \leq (W_{max} /2)$
+congestion phase, and as $B/C$ the time that takes a buffer with size $B$ to
+drain, the size of a buffer $B$ needed is $B \leq (W_{max} /2)$
 \cite{main:ref:1}.
 
 The problem occurs when the required size buffers are implemented, and the
