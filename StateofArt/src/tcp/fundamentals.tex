@@ -17,13 +17,13 @@ is also a constraint to the sender, the sender is not allowed to
 transmit more data than the window before acknowledgment of the data sent.
 
 To manage the data sent and the acknowledgment received for those packets, TCP
-uses a cumulative scheme. After a packet is in flow from the server with its
+uses a cumulative scheme. After a packet is in flight from the server with its
 corresponding sequence number, sent data goes to a retransmission queue where
-it is held until the corresponding acknowledge from the other end has come in
-or, to be resent if not acknowledgment within a timeout. When the
-acknowledgment of a sequence number is received, the sender discard all data
+it is held until the corresponding acknowledgement from the other end has come in,
+or to be resent if not acknowledged within a timeout. When the
+acknowledgment of a sequence number is received, the sender discards all data
 with sequence numbers bellow the sequence number in the acknowledgment that
-has arrive. For retransmission, TCP uses an adaptive scheme. The timeout is
+has arrived. For retransmission, TCP uses an adaptive scheme. The timeout is
 automatically set from the measured round trip time of the connection,
 taking into account the variance of the measured values\cite{JacobsonCAC}.
 This helps avoid retransmitting potentially lost segments too quickly or too
