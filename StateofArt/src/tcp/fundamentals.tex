@@ -7,18 +7,14 @@ number, each data byte sent as part of the connection has a corresponding
 sequence number; and only after having being acknowledged by the receiver is
 the data considered to be transmitted successfully.
 
-TCP made use of the idea of pipe size and the knowledge there was reasonable
-but not excessive buffering along the data path to send a window of packets at
+TCP makes use of the idea of pipe size and the assumption there was reasonable buffering along the data path to send a window of packets at
 a time. To control the amount of data that flows through the network path, the
-receiver sent the information of how much data can receive at once, so the
-network resource is utilized in a more efficiently way. This window of data
-means how many bytes the receiver can work with, given the available buffering
-and processing constraints. That is, window size represents how much data a
+receiver sent the information of how much data it can receive at once, so the
+network resource is used efficiently. Window size represents how much data a
 device can handle from its peer at one time before it is passed to the
-application process. All the extra data in excess will be dropped. This window
-is also a constrain to the sender, because the sender is not allowed to
-transmits no more data than the window before waiting for the response of the
-host as acknowledgment of the sent data.
+application process. All excess data will just be dropped. This window
+is also a constraint to the sender, the sender is not allowed to
+transmit more data than the window before acknowledgment of the data sent.
 
 To manage the data sent and the acknowledgment received for those packets, TCP
 uses a cumulative scheme. After a packet is in flow from the server with its
