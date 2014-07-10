@@ -10,33 +10,32 @@ congestion collapse. It is important to keep in mind that when a packet is
 dropped before it reaches its destination, all of the resources it has
 consumed in transit are wasted.
 
-This is when the role of routers extends beyond joining and interconnect local
+This is how the role of routers extends beyond joining and interconnecting local
 networks and the Internet together. The role of routers becomes important
 because they are able to better manage congestion that may occur in networks
-due the knowledge they has about other routers on the network and can choose
+due the knowledge they have about other routers in the network and can choose
 the most efficient path for the data to follow, or as already seen, send
-message to the ends to fall back or even drop data. Also they must allocate
+message to the ends to fall back or even drop data.  They must allocate
 the available bandwidth fairly between all flows.
 
-Typically the queues that routers maintains are designed to smooth and
-accommodate the burst of data delivered by the hosts and transient congestion,
-but as the queues start to fill, the routers drops packets using a FIFO based
+Typically the queues that routers maintain are designed to smooth and
+accommodate bursts of data delivered by the hosts and transient congestion,
+but as the queues start to fill, the routers drop packets using a FIFO based
 drop-tail management. This discipline has two mayor drawbacks:
 \begin{enumerate}
 \item Lock Out: a small number of flows tends to monopolize the usage of the
 buffer capacity\cite{evolvshortlongflows} .
-\item Full Queue: these buffers tends to be always full, leading to experience 
+\item Full Queue: these buffers tends to be always full, leading to 
 high latency.
 \end{enumerate}
 
 Also, as explained in \cite{FloydJacobsonRED}, when a router use tail-drop,
-\textit{the more bursty the traffic from a particular connection, the more
+\emph{the more bursty the traffic from a particular connection, the more
 likely it is that the gateway queue will overflow when packets from that
 connection arrive at the gateway/router}.
 
-All this led to develop and implement more aggressive or active strategies to
-congestion control on the Internet called Active Queue Management or AQM for
-their acronym. AQM is a group of FIFO based queue management mechanisms to
+All this led to develop and implement more aggressive or active strategies for
+congestion control on the Internet called Active Queue Management or AQM. AQM is a group of FIFO based queue management mechanisms to
 support end-to-end congestion control in the Internet. The goals behind AQM
 are to reduce the average queue length and with that decreasing the end-to-end
 delay. Also to reduce packet losses that reflect as a more efficient resource

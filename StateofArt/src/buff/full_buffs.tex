@@ -1,21 +1,20 @@
 %	1.- Full buffers: Cause no signals buffers at the right time, the buffers are always full
-Packet networks require absorb bursty arrivals that TCP performs in order to
-communicate two hosts. When received, a packet is immediately validated, but
-not necessarily immediately processed and transferred out without kept in a
+Packet networks require to absorb bursty arrivals. When received, a packet is immediately validated, but
+not necessarily immediately processed and transferred out without having spent some time in a
 buffer. That means that if the rate at which packets are received is greater
-than delay that takes to process and remove a package from the buffer, it
-tends to fill up\footnote{When this occurs, the receiving device may need to
-adjust window size to prevent the buffer from being overloaded.} and stay
+than the delay to process and remove a package from the buffer, the buffer
+fills up\footnote{When this occurs, the receiving device may need to
+adjust window size to prevent the buffer from being overloaded.} and stays
 congested, contributing to excessive traffic delay and losing the ability to
 perform their intended function of absorbing bursts.
 
 This standing queue is the essence of Bufferbloat and is the result of the
 difference between the window and the bandwidth of the link, only creating
-long delays in communication, but no benefit in overall throughput. \textit{It
-is not a phenomenon threated by queue or traffic theory, which, unfortunately,
-results in it being almost universally misclassified as congestion(a
-completely different and much rared pathology)}\cite{CACMStaff}.
+long delays in communication, but no benefit in overall throughput. \emph{It
+is not a phenomenon treated by queue or traffic theory, which, unfortunately,
+results in it being almost universally missclassified as congestion (a
+completely different and much rarer pathology)}\cite{CACMStaff}.
 
-When the packet reach a bottleneck queue, is squeezed down in bandwidth but
+When the packet reaches a bottleneck queue, it is squeezed down in bandwidth but
 must stretch out in time since its size stays constant. This stretch is the
-cause, at buffer level, in the time increase of the next packet in the queue.
+cause, at the buffer level, of the delay of the next packet in the queue.

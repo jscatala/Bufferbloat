@@ -1,70 +1,67 @@
 By analyzing all of the work done for this thesis, it is possible to conclude
 that the objective of it was achieved considering the same frame of reference
-as the criteria defined at the beginning of it being the \textit{objective of
+as the criteria defined at the beginning of it being the \emph{objective of
 checking the effects of Bufferbloat phenomenon, test the impact that it has in
-over different networks and to generate possible solutions}. To accomplish
+on different networks and to propose solutions}. To accomplish
 this, it first required to address the following general objectives:
 
 \begin{itemize}
-	\item To explain the \textit{Bufferbloat} phenomenon, and explain the impact that it could have over latency and throughput in Internet.
+	\item To explain the \emph{Bufferbloat} phenomenon, and explain the impact that it could have over latency and throughput in Internet.
 	\item To detect the presence by empirical measure of the latency and throughput in a TCP/IP Network.
 	\item To propose possible solutions in the implementation of a network where the existence of excessively large and frequently buffers are detected.
 \end{itemize}
 
 Thanks to the various tests it was possible to demonstrate the presence and
-feel the effects of \textit{Bufferbloat} in some networks. While the common
+feel the effects of \emph{Bufferbloat} in some networks. While the common
 factor in them at first sight is their low bandwidth, you can not directly
 assign this as a cause, as also contrary cases that had a bad performance
 determined by physical effects such as routers were in poor condition or
 environmental interference.
 
 As proven in this thesis and corroborated in \cite{MathisMacroCAA}, in
-general, a low latency network is wanted in order to exchange in a better way
-all the message between a server and a client. Since low latency make us feel
+general, a low latency network is wanted in order to exchange  messages between a server and a client. Since low latency make us feel
 a faster web surfing and enables better performance in online games and VoIP
 technology.
 
-It is clear that the more far away a clients is from the server, the latency
+It is clear that the farther away a clients is from the server, the latency
 will be higher, but what if we put more and more load to the network, how much
 the latency can go up to? Having 12 times the latency when the network
-overload is not normal and as mentioned by \textit{Jim Gettys} several times,
+overload is not normal and as mentioned by \emph{Jim Gettys} several times,
 the culprit is Bufferbloat.
 
 The effects on latency and navigation are catastrophic growing to full
-charging time in minutes or even generate timeout sites. That if we take
-today's world where more and more common to see applications that make use of
-high bandwidth makes it almost impossible navigating multiple users with these
+charging time in minutes or even generate timeout sites.  If we take
+today's world where it is more and more common to see applications that make use of
+high bandwidth, makes it almost impossible navigating multiple users with these
 characteristics. Then, two users on the same network using such applications
 should take turns to ensure a smooth operation.
 
-Also from \cite{main:ref:1} and \cite{Vu-Brugier}, we can see that the rule-
-of-thumb of sizing routers $B = (\overline{RTT}xC)$ doesn't longer apply.With
+Also from \cite{main:ref:1} and \cite{Vu-Brugier}, we can see that the rule-of-thumb of sizing routers $B = (\overline{RTT}xC)$ doesn't longer apply.With
 routes which have sizes much larger buffers than required, all it does is slow
 down and hinder the passage of trading floors. The larger the buffer size, the
 longer it takes for a packet to go through it, not adding any value in the
 packet transfer and only adding additional latency.
 
-In the past days networks were had much lower performance than they are today,
-so as \textit{Bufferbloat} alike phenomena were more difficult to detect
-because their effects were not as visible. Today with the advancement of
+In the past days networks had much lower performance than they are today,
+so as \emph{Bufferbloat} alike phenomena were more difficult to detect
+because their effects were not as visible. Today with the advance of
 technology and the use of tools that feed us with information almost
-instantaneous, any change or modification at any point within the
+instantaneously, any change or modification at any point within the
 communication channel is evident, and why not say is magnified even to make
 some systems collapse.
 
 The complexity of deploying new algorithms into production environments is
 such that no matter how many tests are performed over new algorithms, the
-conditions under development environments will hardly match. Also do testing
-at production environments are too hard and to complex\cite{Vu-Brugier} and if
-they are not well designed can affects to users in a hardly way.
+conditions under development environments will hardly match. Also doing testing
+in production environments is too hard and too complex\cite{Vu-Brugier},
+and if tests are not well designed can affect users in a hard way.
 
-Thanks to Codel, and Bufferbloat community is possible to loom an effective
-solution to the phenomenon of Bufferbloat. Although, even this phenomenon is
-since a couple of years under study, the solutions are not yet fully proven
-therefore may prevent from complete collapse, but these solutions are designed
-for modern systems (eg. Codel requires BQL recommended for Linux kernel 3.5
-onwards), so always will be some systems vulnerable to its effects. Apply
-recommendations as QoS and bandwidth limiting for some applications are the
+Thanks to Codel, and Bufferbloat community is possible to propose an effective
+solution to the phenomenon of Bufferbloat. Although while this phenomenon has been studied for a couple of years, the solutions are not yet fully proven,
+but these solutions are designed
+for modern systems (e.g.. Codel requires BQL recommended for Linux kernel 3.5
+onwards), so there will always be some systems vulnerable to its effects. Apply
+QoS and bandwidth limiting for some applications are the
 most common and easy to implement recommendations for any user, regardless of
 the operating system on which they are working.
 
@@ -75,28 +72,28 @@ interference between emitters is much more common than years ago, can be
 determining factors in achieving this long-awaited win the last game shooter,
 or close the business of our lives through a video conference.
 
-Much still to be done in this field. As example, the analysis in specific of
+Much is still to be done in this field. As example, the analysis in specific of
 how the three different flows (Elephant, mice and
-ant)\cite{HaElephants}\cite{evolvshortlongflows} are affected to big buffers
-and prioritize smaller flows can help to fix some of the issues like DNS
+ant)\cite{HaElephants, evolvshortlongflows} are affected by big buffers
+and prioritize smaller flows can help fix some of the issues like DNS
 resolution, but how they react when the whole network is under the effects of
-\textit{Bufferbloat}? The effects change if this occurs at a last-mile-router
+\emph{Bufferbloat}? The effects change if this occurs at a last-mile-router
 or at a back-bone?
 
 Thanks to studies as done by Hoiland-Jorgensen\cite{TokeLinux}, is that a
-better understand of how the Linux Kernel reacts to \textit{Bufferbloat}, but
+better understanding of how the Linux Kernel reacts to \emph{Bufferbloat}, but
 this follows up to all Linux based OS? With the advance of technology, new
-devices are getting more cheap and most people can have access to them. Well
-know is the case of Open-Wrt\cite{openwrt}, that is a Linux distribution for
+devices are getting cheaper and most people can have access to them. Well
+known is the case of Open-Wrt\cite{openwrt}, that is a Linux distribution for
 embedded devices. Projects like Cero-WRT\cite{cerowrt}, can help to the
-community to fight against \textit{Bufferbloat} in every piece that is
+community to fight against \emph{Bufferbloat} in every piece that is
 involved on the communication. But will this help in all devices? As example,
 Arduino Yun is a microcontroller board, with an Atheros processor that
 supports a Linux distribution based on OpenWrt named OpenWrt-Yun. The board
-has built-in Ethernet and WiFi support. So, this board will well behave under
-high consumption of bandwidth too? Also the effects of \textit{Bufferbloat}
+has built-in Ethernet and WiFi support. So, will this board behave well under
+high consumption of bandwidth too? Also the effects of \emph{Bufferbloat}
 under Windows machine are not well known. Beside the recommendations of the
 Bufferbloat community\cite{windowstips} not much information can be found
 about it. Study the effects under laying the use of
-CTCP\cite{Tan06compoundtcp}\cite{4146841} will be a good point of start.
+CTCP\cite{Tan06compoundtcp}\cite{4146841} will be a good starting point.
 

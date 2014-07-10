@@ -17,7 +17,7 @@
 
 Introduced by Wu-chang Feng et al in \cite{FengBLUEAQM}, BLUE aims to manage
 congestion by using packet loss and link utilization history. The concept
-behind BLUE's development is to avoid drawbacks of RED like parameter tunning
+behind BLUE's development is to avoid drawbacks of RED like parameter tuning
 problems or to determine the fluctuations of actual queue length. The key idea
 is to perform queue management based directly on packet loss and link
 utilization rather than on the instantaneous or average queue lengths.
@@ -27,13 +27,13 @@ simplifies the process of dropping or marking packets when they are enqueued.
 Against a continuous dropping of packets due to overflow, the probability
 increases, increasing the rate at which it sends back congestion notification.
 Also, to control how this parameter changes over time, the
-\textit{freeze\_time} is used to determine the minimum time interval between
+$freeze_time$ is used to determine the minimum time interval between
 updates.  The value on which to increase or decrease, if the link is idle, is
 determined by $\delta_1$ and $\delta_2$.
 
 The effects of BLUE, as proved in \cite{FengBLUEAQM}, are the reduction of the
 buffer size, which also reduces the end-to-end delay and helps to improve the
-effectiveness of the congestion control algorithm. BLUE also shown that it
+effectiveness of the congestion control algorithm. BLUE has also shown that it
 has a better performance when marking incoming packets, leading to congestion
 notifications causes periods of sustained packet loss nor periods of continual
 underutilization.

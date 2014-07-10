@@ -1,7 +1,6 @@
-The tests will be ran under a pseudo controlled environment, using one
-physical  machine and a second virtual machine hosted in first machine. These
-systems runs under a regular OS without any modification beside the ones that
-the own OS as by default. Also, for some tests two other devices will be
+The tests were ran under a pseudo controlled environment, using one
+physical  machine and a second virtual machine hosted on the first machine. These
+systems runs under a regular OS without any modifications. Also, for some tests two other devices will be
 added,  one acting as an Iperf Server and a regular Android Tablet that will
 be used to add some extra load to the network when the Ethernet cable is used
 as medium.
@@ -49,8 +48,8 @@ The idea of using an external device to connect the virtual machine to the
 network and not using a bridged configuration provided by software, is mainly 
 because with an USB device the machine will take care of all the management and 
 administration of the device, avoiding any possibility that the host machine 
-modify or manages any flow. Also, by using a second machine to overload the 
-uplink, causes to avoid overflow the queue on the machine that is performing 
+modifies or manages any flow. Also, by using a second machine to overload the 
+uplink avoids overflow the queue on the machine that is performing 
 the tests. With this, it is expected to minimize the possibility that our 
 testing machine is causing extra latency, either by the saturation of the 
 wireless channel, or by the queue in the traffic control subsystem into the 

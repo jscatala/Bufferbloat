@@ -1,7 +1,7 @@
-The main function of routers is to absorb bursts of traffic coming from the
-routers, and ensure that links are used to their maximum capacity. A network
-that does not have buffers, do not have the ability to store packets that are
-waiting to be transmitted, so any package that is over the capacity of the
+One main function of routers is to absorb bursts of traffic coming from the
+hosts, and ensure that links are used to their maximum capacity. A network
+that does not have buffers does not have the ability to store packets that are
+waiting to be transmitted, so any packet that is over the capacity of the
 link will be dropped. In order to operate without buffers, arrivals must be
 constant and predictable; synchronization of the entire network would be
 necessary to avoid any loss. Such networks are complex in design, expensive to
@@ -11,13 +11,11 @@ The throughput of each network is limited by the capacity of the slowest link
 causing a bottleneck; no matter how much more packets are introduced to the
 network, the transfer will not be faster than that determined by this link.
 That is why the major location of buffers in areas where bottlenecks occur is
-essential for proper functioning of the network, but this transfer between
-fast-to-slow networks is different on each route, even for the reverse path.
+essential for proper functioning of the network, but this transition between
+fast-to-slow networks is different on each route, and even for the reverse path.
 
-The presence of buffers is necessary to help to reduce data loss. Also because
-in the past the high cost of memory kept the buffers quite small, causing it
-to fill pretty quickly after the network became saturated, signaling to the
-communications protocol the presence of congestion and thus the need for
+The presence of buffers is necessary to help reduce data loss. In the past the high cost of memory kept the buffers quite small, causing them
+to fill pretty quickly after the network became saturated, signaling the presence of congestion and thus the need for
 compensating adjustments.
 
 Unfortunately the network transport protocols, in order to operate at full

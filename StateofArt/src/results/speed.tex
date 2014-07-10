@@ -1,5 +1,5 @@
-As expected, in all cases the networks were asynchronous, being significantly
-higher the bandwidth related to the download (the downlink) than the uploading
+As expected, in all cases the networks were asymmetric, 
+the download bandwidth (the downlink) being significantly higher than the uploading
 or uplink. This also explains the relationship between the uplink and ping,
 presenting a major ping in the networks with lower uplink. The relationship
 can be better be seen in the Figure \ref{fig:speeds}.
@@ -12,21 +12,20 @@ can be better be seen in the Figure \ref{fig:speeds}.
 \label{fig:speeds}
 \end{figure}%
 
-The Figure \ref{fig:speeds} also is a prove of the common missundersanding
+The Figure \ref{fig:speeds} also is a proof of the common misunderstanding
 about the how the ISP's promote high download speeds but with low uplink. Even
 though most of the time home users download content, in order to keep a good
-ratio the data needs to flow between both sides, because due the way TCP
+ratio the data needs to flow both ways, due to the way TCP
 works, you need good communication in both directions. While in theory this
 works without major problems, unfortunately in reality users download content
-from different sources at once, and if we add the new requirements like in
-real-time  or on-demand applications and online games, we see that not only a
-high downlink is important.
+from different sources at once, and if we add new requirements like real-time  or on-demand applications and online games, we see that not only a
+high-speed downlink is important.
 
-Another important point is the growing need for higher bandwidth capacity.
+Another important point is the growing need for higher bandwidth.
 Unfortunately it is common to associate bandwidth with speed. Instead,
-bandwidth is a measure of capacity, not how fast the network responds. Then,
-more capacity is only better if the existing latency is lower. This may
-explain why the tests performed in network tagged as \textit{``casa''} can have low pings
+bandwidth is a measure of capacity, not how fast the network responds. So,
+more capacity is only better if the existing latency is low. This may
+explain why the tests performed in network tagged as \emph{``casa''} can have low pings
 even when its capacity is close to the mean, but this network is through
 fiber\footnote{In practice, fiber service have a propagation delay 10 times
 faster than ASDL service}.
@@ -67,6 +66,6 @@ value\footnote{Details of the provider and bandwidths can be found on Appendix
 
 Further analysis is needed to determinate how the bandwidth is related with
 the Bufferbloat, but it is clear that less the bandwidth, higher the ping, but
-it can not be stated the oppossite, higher the bandwidth, less the ping
-becouse it also depends on how fast the network is and the effects in the
+it can not be stated the opposite, higher the bandwidth, less the ping
+because it also depends on how fast the network is and the effects on the
 latency \cite{main:ref:3}.

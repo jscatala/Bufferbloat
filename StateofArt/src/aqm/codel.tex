@@ -4,10 +4,10 @@ congestion, no hard data on how serious is this. Jacobson et al, determined
 that it may submit two types of queues: one that smooths bursts of arriving
 packets turning it into a stable and continuous sent and tends to last less
 than one RTT (called good queues); and those that only tend to create
-excessive delays and lasting several RTTs (bad call queues). With this, they
-were able to determine that the core of bufferbloat detection problem is
+excessive delays and lasting several RTTs (called bad queues). With this, they
+were able to determine that the core of Bufferbloat detection problem is
 separating good from bad queues. Bearing in mind the above is that an
-algorithm called \textit{Control delay} or CoDel by its acronym were
+algorithm called \textit{Control delay} or CoDel by its acronym was
 developed.
 
 Presented in \cite{NicholsJacobsonCQD}, CoDel is based on the idea that it is
@@ -16,9 +16,9 @@ than keeping a window of values to compute the minimum. Rather than measuring
 queue size in bytes or packets, it is used the packet-sojourn time through the
 queue. The time each packet spends in the queue is independent of the
 transmission rate, the \gls{sojourn} is more valuable information about the behavior
-of the buffer, in addition to being much more related to the effects you may
+of the buffer, in addition to being much more related to the effects the user may
 experience. The sojourn is based on a timestamp corresponding to when the
-packet arrive to the queue, at which this mark is added to the package
+packet arrives at the queue, at which this mark is added to the package
 information. The minimum packet sojourn can be decreased only when a packet is
 dequeued.
 
@@ -39,7 +39,7 @@ is dropped and a control law sets the next drop time accordingly to Figure
 \ref{fig:CoDeldroptime}. The ways in which CoDel stops packet drop is either
 when the delay queue is less than the target value or when the buffer contains
 less than MTU's bytes. Furthermore the algorithm has additional logic that
-controls reenter to dropping state too soon.
+controls reentering to dropping state too soon.
 
 
 Beside the minimum packet sojourn, the other two parameters that CoDel needs
@@ -47,8 +47,8 @@ are the target and interval, which are almost self-explanatory. Target is the
 acceptable standing queue delay and interval works as the  time on the order
 of a worst-case RTT of connections through the bottleneck. The recommended
 target value is 5ms since tests reveal that with this value, the utilization
-of the links is the optimal. Interval is loosely related to RTT since it is
+of the links is optimal. Interval is loosely related to RTT since it is
 chosen to give endpoints time to react without being so long that response
-time suffers. A setting of 100ms works well. \textit{CoDel's efficient
+time suffers. A setting of 100ms works well. \emph{CoDel's efficient
 implementation and lack of configuration are unique features that make it
 suitable for managing modern packet buffers}\cite{NicholsJacobsonCQD}.

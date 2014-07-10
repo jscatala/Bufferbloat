@@ -6,44 +6,44 @@ few decades, Internet growth has exceeded the expectations of even the most
 experienced analysts and dreamers.
 
 Intensive-consumption applications like on-line games, audio and video
-streaming for music or on-line calls, torrent or P2P applications and other
+streaming for music or on-line calls, torrent or P2P applications and 
 sites that have a high level of resource utilization like Youtube, Facebook or
 Netflix, have made networks of today quite different from those that formerly
 existed, but still running the same protocols\footnote{While many have been
 updated, the basics remain the same}. If that was not enough, the creation and
-incorporation of new devices such as smart phones, tablet and even smart-watch
-with the ability to transmit data over the Internet, makes more necessary a 
-wealth handling of information in an efficient and properly way.
+incorporation of new devices such as smart phones, tablets and even smart-watches
+with the ability to transmit data over the Internet, makes it more necessary to handle data traffic in an efficient way..
 
 TCP relies on timely notification to adjust its transmission rate to the
-available bandwidth, which is commonly signaled by the packet loss. But since
-couple of years, and helped by lower prices on hardware manufacturing along
-with the thought that more is always better, the manufacturers had decide to
-prevent as much as possible the loss with the addition of larger buffers on
+available bandwidth, which is commonly signaled by packet loss. But since a
+couple of years, and helped by lower prices of hardware along
+with the thought that more is always better, the manufacturers have decided to
+prevent the loss of data as much as possible with the addition of larger buffers on
 their devices. This simple action is slowly bringing a new collapse not only
 TCP but data transmission in general, as can be seen in \cite{CACMStaff}
 
 With the increase in the size of buffers, the packages spent more time
-``on the fly'' in this big buffers instead of dropped, signaling to TCP to
-reduce the sending rate. When this large amount of data is dropped, causes TCP
+``on the fly'' in big buffers instead of dropped, signaling to TCP to
+reduce the sending rate. When finally a large amount of data is dropped,
+it causes TCP to
 sharply drop in transmission rate, freeing up bandwidth. Unfortunately, due to
-the size of the buffers is static, when the new TCP slow-start phase start,
-again due to the lack of signals out of time, TCP will work with diminish
+the size of the buffers being static, when the new TCP slow-start phase starts,
+again due to the lack of timely signals, TCP will work with reduced
 performance. This problem is cyclical, resulting in exponential TCP back-off,
-throughput degradation and very high latency
+throughput degradation and very high latencies.
 
 But the paths on Internet are shared by multiple TCP streams so the buffers,
-and this back-off behavior has a tendency to synchronize flows
-\cite{main:ref:1}. This cause all the flows to throttle back their
+and this back-off behavior, has a tendency to synchronize flows
+\cite{main:ref:1}. This causes all the flows to throttle back their
 transmission rates simultaneously, amplifying the effect. This decrease in
 latency and reduced throughput are the effects of Bufferbloat phenomenon.
 
-As stated in \cite{GettysNichols}, \textit{long delay from Bufferbloat are
+As stated in \cite{GettysNichols}, \emph{long delay from Bufferbloat are
 frequently misattributed to insufficient bandwidth and this misinterpretation
 of the problem leads to the wrong solutions being proposed}. As seen in the
 past sections, the packet loss for TCP is not in itself a problem, conversely
 it is essential for its functioning. The real problem is  the excessive and
 consecutive packet losses that occurs when the buffers kept persistently
-fulls. This effects may cause that modern applications timeout their
+full. This effects may cause that modern applications timeout their
 connections or in others may experience some delay. This is the real
 effects and problems of Bufferbloat.
