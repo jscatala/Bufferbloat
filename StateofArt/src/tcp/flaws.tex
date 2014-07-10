@@ -23,13 +23,14 @@ their devices. This simple action is slowly bringing a new collapse not only
 TCP but data transmission in general, as can be seen in \cite{CACMStaff}
 
 With the increase in the size of buffers, the packages spent more time
-``on the fly'' in this big buffers instead of dropped, signaling to TCP to
-reduce the sending rate. When this large amount of data is dropped, causes TCP
+``on the fly'' in big buffers instead of dropped, signaling to TCP to
+reduce the sending rate. When finally a large amount of data is dropped,
+it causes TCP to
 sharply drop in transmission rate, freeing up bandwidth. Unfortunately, due to
-the size of the buffers is static, when the new TCP slow-start phase start,
-again due to the lack of signals out of time, TCP will work with diminish
+the size of the buffers being static, when the new TCP slow-start phase starts,
+again due to the lack of timely signals, TCP will work with reduced
 performance. This problem is cyclical, resulting in exponential TCP back-off,
-throughput degradation and very high latency
+throughput degradation and very high latencies.
 
 But the paths on Internet are shared by multiple TCP streams so the buffers,
 and this back-off behavior has a tendency to synchronize flows
