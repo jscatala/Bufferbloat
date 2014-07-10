@@ -31,9 +31,8 @@ slowly.
 
 Because today's networks are dynamic and in different configurations, both
 topologically speaking as a  bandwidth, TCP must handle these changes and
-still be able to maintain communication between the two hosts. The lost of
-communications can be an issue that TCP needs to take into account. In case of
-lost of one packet means subsequent packets cannot be acknowledged until the
+still be able to maintain communication between the two hosts. In case of
+loss of one packet means subsequent packets cannot be acknowledged until the
 lost packet is retransmitted. This can lad to excessive retransmission and
 unnecessary load. TCP extension has been developed that allows the receiver to
 send selective acknowledgments of block of received data with sequence numbers
