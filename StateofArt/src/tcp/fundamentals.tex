@@ -40,13 +40,12 @@ that are not cumulative with the data acknowledged in the traditional
 way\cite{RFC2018}.
 
 Since networks are shared and conditions change along the path, the algorithms
-continually probe the network and adapt the number of packets in flight. It is
-not hard also (but it is often the case) to find along the way decreases in
-the bandwidth. This spots are the bottlenecks\footnote{Or the \gls{BW}
+continually probe the network and adapt the number of packets in flight. Often there are decreases in
+the bandwidth along the way. Such spots are the bottlenecks\footnote{Or the \gls{BW}
 points} and they are important because the performance or capacity of the
 entire connection (connection as a state between the two hosts) is limited by
 the resources that this trace has. With this, controlling the optimal rate of
-data transmission is a hard work, and the receiver window as communicated by
+data transmission is hard work, and the receiver window as communicated by
 TCP is not a necessarily a very good indicator. To fix this issue, TCP
 received an addition to its specification: \textit{congestion window}. The
 congestion window plays a crucial role in estimating the available bandwidth
