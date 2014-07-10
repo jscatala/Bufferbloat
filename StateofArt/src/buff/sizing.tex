@@ -14,11 +14,11 @@ irrelevant.
 A widely used rule-of-thumb recommends the buffers of size $B = \overline{RTT}
 \times C $, where $\overline{RTT}$ is the average round trip time experienced by
 connections utilizing the link, and $C$ is the data rate of the link. Many
-buffers have been inserted without sufficient care due to the complexity to
-establish the appropriate size and test on real environments\cite{Vu-Brugier},
+buffers have been inserted without sufficient care due to the complexity of
+establishing the appropriate size and test on real environments\cite{Vu-Brugier},
 helping to determine where further complicate occurs Bufferbloat.
 
-While the rule-of-thumb comes from the idea of ​​maintaining the medium as
+The rule-of-thumb comes from the idea of maintaining the medium as
 busy as possible, and to maximize the throughput of the medium. But due to the
 characteristics of TCP, no matter how large the buffer is, it will always be
 saturated.
@@ -29,7 +29,7 @@ possible downtimes in order to maximize utilization of the link and kept high
 throughput at all times. The buffer will avoid to idle if the first packet
 from the sender shows up at the buffer just as it hits empty.
 
-After a lost is detected, the cwnd is set to half of is last value, so if we
+After a lost is detected, the $cwnd$ is set to half of is last value, so if we
 denote as $(W_{max} /2)/C$ the amount of time that packets are sent in
 congestion phase, and as $B/C$ the time that takes a buffer with size B to
 drain, the size of a buffer B needed is $B \leq (W_{max} /2)$
