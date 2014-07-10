@@ -6,11 +6,11 @@ delay (the time spent waiting to be processed or retransmitted). But large
 buffers only increase latency, and this only causes conflict with the needs
 of nowadays applications.
 
-Once packets in-fly reach a bottleneck, they begin to spooling. Because the
+Once packets in-fly reach a bottleneck, they begin to pool. Because the
 characteristics already explained, more and more packets are coming, and this
-queue continues to increase, which leads that each new arriving packet spends
-more time through the queue than the predecessor packet, which means an
-increase in the latency. Then, eventually, packets start to be dropped,
+queue continues to increase, which leads that each new arriving packet spending
+more time in the queue than the predecessor packet, which means an
+increase in the latency. Eventually, packets start to be dropped,
 notifying the hosts of the presence of congestion on the path.
 
 As stated in \cite{Dischinger2007CRB}, it is quite common to find these high-
