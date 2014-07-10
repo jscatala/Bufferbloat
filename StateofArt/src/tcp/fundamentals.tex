@@ -1,12 +1,8 @@
 TCP operates basically making two hosts exchange segments of data. The
-connection between these two hosts is identified uniquely at each end by the
-host's network address and a 16 bit port number. The communication between the
-hosts is initiated by a three way handshake between them. This is where the
+connection between these two hosts is identified uniquely by the network addresses and a 16 bit port number at both hosts. The communication between the
+hosts is initiated by a three way handshake between them, where the
 sequence number is synchronized between the participants. The sequence number
-is a 32-bit number and it is the basis for a reliable data transport, working as
-a mechanism to assure the exchange of data through an unreliable network
-medium counting the bytes transmitted making possible be checked by the
-receiver and be acknowledged. This is, starting from the initial sequence
+is a 32-bit number and it is the basis for reliable data transport through an unreliable network. This is, starting from the initial sequence
 number, each data byte sent as part of the connection has a corresponding
 sequence number; and only after having being acknowledged by the receiver is
 the data considered to be transmitted successfully.
