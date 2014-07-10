@@ -22,9 +22,9 @@ extra load.
 \label{fig:iperfgood}
 \end{figure}%
 
-Figure \ref{fig:iperfgood} shows the behavior of the network which although
+Figure \ref{fig:iperfgood} shows the behavior of the network which, although it
 has a bandwidth in the mid-high average range, but with its transmission rate
-higher because it is a fiber optic network (\textit{casa\_w}). It can be
+higher because it is a fiber optic network (\emph{casa\_w}). It can be
 appreciated that in a state where only one application uses the entire
 bandwidth, there is an increased RTT time, but not significant. In fact the
 only difference compared to the following two graphs sharing network resources
@@ -43,7 +43,7 @@ browsing client, or some type of problem seen in real time applications.
 \end{figure}%
 
 
-For Figure \ref{fig:iperfmid}, at the beginning of the fist test (first $\sim10$ seconds) the RTT times are really small, but according to previous cases, is about the time it takes to saturate the buffers. This behavior proof that is what is occurring, specially that after this period of time RTT rise almost doubling, presenting ranges between 400 and 700 ms, but with valleys that are round to  300 ms or less. For the second and third graph in this network, the valleys are reduced and with higher values, especially in periods when the second application is making use of the resource (between about 50 and 250 seconds), being noticed particularly few times in the third chart which also shows an increase in the maximum upper 800 ms. This network corresponds to \textit{polmos\_w}.
+For Figure \ref{fig:iperfmid}, at the beginning of the fist test (first $\sim10$ seconds) the RTT times are really small, but according to previous cases, is about the time it takes to saturate the buffers. This behavior proof that is what is occurring, specially that after this period of time RTT rise almost doubling, presenting ranges between 400 and 700 ms, but with valleys that are round to  300 ms or less. For the second and third graph in this network, the valleys are reduced and with higher values, especially in periods when the second application is making use of the resource (between about 50 and 250 seconds), being noticed particularly few times in the third chart which also shows an increase in the maximum upper 800 ms. This network corresponds to \emph{polmos\_w}.
 
 \begin{figure}[ht]
 \centering
@@ -81,4 +81,4 @@ surfing would be almost impossible, and must sacrifice any.
 \label{fig:iperf4low}
 \end{figure}%
 
-It is interesting to mention that for the network \textit{4low}, which presents problems with DNS resolution time was needed more than twice tries in order to perform this tests, as the website used to saturate as a second stream of data could not be loaded throwing error connection time (timeout). After the website complete its full load, having to load it before start iperf for the two cases, it could continue with the normal course of the test.
+It is interesting to mention that for the network \emph{4low}, which presents problems with DNS resolution time was needed more than twice tries in order to perform this tests, as the website used to saturate as a second stream of data could not be loaded throwing error connection time (timeout). After the website complete its full load, having to load it before start iperf for the two cases, it could continue with the normal course of the test.
