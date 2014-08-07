@@ -1,0 +1,167 @@
+\section{The Recipe for Bufferbloat}
+\subsection{The Transport Layer Protocol}
+
+\begin{frame}
+	\frametitle{TCP 101}
+	\begin{block}{Packet Conservation Principle}
+		\centering
+		\textit{``A new packet isn't put into the network until an old packet leaves''.}
+	\end{block}
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{TCP 101}
+%	\begin{itemize}
+%		\item Three way handshake between them and sequence number.
+%		\item TCP makes use of the idea of pipe size and the assumption there was reasonable
+%			buffering along the data path.
+%		\item Sent data and ACK data $\rightarrow$ Cumulative Scheme.
+%		\item Retransmission $\rightarrow$ Adaptative Scheme.
+%		\item Receive Window and Congestion Window.
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}
+	\frametitle{TCP's Phases}
+	\begin{block}{}
+		\begin{enumerate}
+			\item Slow Start
+			\begin{itemize}
+				\item Exponentially increase of the sending rate.
+				\item Increase \textbf{\textit{cwin}} until \textbf{\textit{ssthrsh}}.
+			\end{itemize}
+		\end{enumerate}
+	\end{block}
+	\begin{block}{}
+		\begin{enumerate}
+				\setcounter{enumi}{1}
+			\item Congestion Avoidance 
+			\begin{itemize}
+				\item Optimal utilization preventing congestion.
+				\item Most common: Cubic \& CTCP.
+			\end{itemize}
+		\end{enumerate}
+	\end{block}
+	\begin{block}{}
+		\begin{enumerate}
+			\setcounter{enumi}{2}
+			\item Fast Retransmit \& Recovery
+			\begin{itemize}
+				\item Recover from lost without much hurt.
+				\item Continuous transmitting of new data on subsequent duplicate acknowledgments.
+			\end{itemize}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Router's Buffers Effect}
+\begin{frame}
+	\frametitle{Router's Impact}
+	\begin{block}{Main Functions}
+		\begin{itemize}
+			\item To absorb bursts of traffic coming from the hosts.
+			\item To ensure that links are used to their maximum capacity.
+		\end{itemize}
+	\end{block}
+	\begin{itemize}
+		\item The presence of buffers is necessary to help reduce data loss.
+		\item The absence of timely notification triggers the presence of full buffers and increased communication latency.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Full Buffers}
+	\begin{block}{Packets at bottleneck queue}
+		The packet is squeezed down in bandwidth but must stretch out in time since its size stays constant.
+	\end{block}
+	\begin{block}{Standing Queue}
+		if  rate $@packets$ are received $>>$  delay to process and remove a package from the buffer.
+	\end{block}
+	\begin{block}{}
+		\centering
+		\textit{``This standing queue is the essence of Bufferbloat only creating long delays in communication.''}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Other Factors}
+	\begin{block}{High Latency}
+		\begin{itemize}
+			\item Large buffers only increase latency.
+			\item It is quite common to find these high-latency queues in the last mile.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Sizing Router's Buffers}
+		\begin{itemize}
+			\item Unmanaged buffers are more critical today
+			\item Buffers sizes are larger, delay-sensitive applications are more prevalent, and large downloads common
+			\item Rule-of-Thumb \textbf{\textit{B = RTT*C}}
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Active Queue Management}
+
+\begin{frame}
+	\frametitle{Queue management}
+	\begin{block}{Tail-Drop Drawbacks}
+		\begin{enumerate}
+			\item lockout.
+			\item full queue that impact with a high queue delay.
+		\end{enumerate}
+	\end{block}
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Queue management}
+	\begin{block}{Active Queue Management}
+		\centering
+		\textit{``FIFO based queue management mechanisms to support end-to-end congestion control''}
+	\end{block}
+
+	\begin{block}{Objectives}
+		\begin{itemize}
+			\item Reduce the average queue length. 
+			\item Decrease the end-to-end delay.
+			\item Reduce packet losses $\rightarrow$ more efficient resource allocation.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Algorithms}
+	\begin{block}{}
+		\begin{enumerate}
+			\item Random Early Detection - RED
+			\begin{itemize}
+				\item Can provide high throughput and low average delay, but it's complex to configure properly .
+			\end{itemize}
+			\item BLUE
+			\begin{itemize}
+				\item Based directly on packet loss and link utilization, can reduce the buffer size and the end-to-end delay.
+			\end{itemize}
+			\item Control Delay - CoDel
+			\begin{itemize}
+				\item Based on the idea of a threshold. Beside the minimum packet sojourn, CoDel needs the target and interval time.
+			\end{itemize}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hidden Flaws and Bufferbloat}
+\begin{frame}
+	\frametitle{Evolution of Components}
+	\begin{itemize}
+		\item Use's Evolution
+		\item ``The more is better'' mentallity.
+		\item Flows synchronization.
+		\item Packet lost seen as a problem.
+	\end{itemize}
+\end{frame}
+
