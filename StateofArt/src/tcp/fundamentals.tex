@@ -25,7 +25,7 @@ acknowledgment of a sequence number is received, the sender discards all data
 with sequence numbers bellow the sequence number in the acknowledgment that
 has arrived. For retransmission, TCP uses an adaptive scheme. The timeout is
 automatically set from the measured round trip time of the connection,
-taking into account the variance of the measured values\cite{JacobsonCAC}.
+taking into account the variance of the measured values \cite{JacobsonCAC}.
 This helps avoid retransmitting potentially lost segments too quickly or too
 slowly.
 
@@ -37,7 +37,7 @@ lost packet is retransmitted. This can lead to excessive retransmission and
 unnecessary load. TCP extensions have been developed that allow the receiver to
 send selective acknowledgments of block of received data with sequence numbers
 that are not cumulative with the data acknowledged in the traditional
-way\cite{RFC2018}.
+way \cite{RFC2018}.
 
 Since networks are shared and conditions change along the path, the algorithms
 continually probe the network and adapt the number of packets in flight. Often there are decreases in

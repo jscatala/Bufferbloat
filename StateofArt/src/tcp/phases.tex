@@ -5,9 +5,9 @@ flows must back-off during congestion. In the second half of the 80's, TCP
 began to experience a strange phenomenon that manifested itself through a
 dramatically diminish throughput. After a deep analysis, Van Jacobson showed
 that TCP needed a mechanism to limit transmission speed in the face of
-congestion\cite{JacobsonCAC}. This lead to the development of a better
+congestion \cite{JacobsonCAC}. This lead to the development of a better
 congestion control mechanism for TCP, which was added as a requirement for
-hosts connected to Internet\cite{RFC1122}. Since then, the congestion controls
+hosts connected to Internet \cite{RFC1122}. Since then, the congestion controls
 methods implemented in TCP has been updated several times, adding two new
 algorithms, the \textit{slow start} and \textit{congestion avoidance} were
 designed to keep in ``equilibrium'' the data that is in exchange. Later a
@@ -19,7 +19,7 @@ third where added, the \textit{fast retransmit and fast recovery}.
   \begin{center}
     \includegraphics[width=0.48\textwidth]{img/slowstart}
   \end{center}
-  \caption[The Chronology of a Slow-Start.]{The Chronology of a Slow-Start.\cite{JacobsonCAC}}
+  \caption[The Chronology of a Slow-Start.]{The Chronology of a Slow-Start. \cite{JacobsonCAC}}
   \label{fig:slowstart}
 \end{wrapfigure}
 
@@ -44,7 +44,7 @@ increase it if congestion signals are received or not. Also, based on the
 afore mentioned principle (``\textit{packet conservation principle}''),
 congestion collapse would become the exception rather than a rule. Thus
 congestion control involves finding place that violate conservation and fixing
-them. It is important detect early this misbehavior, since new packets are
+them. It is important to detect early this misbehavior, since new packets are
 added exponentially also the congestion grows exponentially, so if is detected
 early, only small adjustments will cure it.
 
@@ -52,16 +52,16 @@ Typically, when the sender is signaled that packets are been dropped, TCP/IP
 networks understand that as congestion, but typical effects include queuing
 delay, packet loss or the blocking of new connections. New implementations
 define a explicit congestion notification methods \cite{rfc3168}, that allows
-notification of congestion between the ends without any packet loss. TCP
+notification of congestion between the end points without any packet loss. TCP
 specification mandates initially setting the congestion window to between 2
-and 4 segments of data depending on the segment size\cite{rfc3390}.
+and 4 segments of data depending on the segment size \cite{rfc3390}.
 
 \subsubsection{Congestion control algorithms}
 One of the biggest problems that TCP had in the past years for its development
 has been the achieve of optimal utilization preventing congestion associated
 with the differences of bandwidth existing in the medium through which
 communication is propagated. That is why lately there have been various
-implementations for proper handling of the original algorithm originally
+implementations for proper handling of the original algorithm 
 deployed in TCP for attaining prevent or lessen the effects of this problem.
 Among the algorithms that currently exist, the two predominant in modern
 operating systems will be mentioned: CUBIC and Compound TCP.
@@ -72,7 +72,7 @@ large \gls{BDP} is rather straightforward, tackling the fairness issues of new
 protocols has remained as a major challenge.  Although BDP implies the network
 capacity by packet count(or window size), packet count is not adequate to
 characterize TCP performance because growth rate of TCP depends on
-RTT}\cite{HaCubic}.
+RTT} \cite{HaCubic}.
 
 Because the basis of their growth is a cubic function (hence its name), has a
 less aggressive behavior than their predecessors, while retaining excellent
@@ -91,7 +91,7 @@ available bandwidth. Since in previous algorithms throughput is defined by the
 packet loss rate as well as RTT, the throughput in CUBIC is defined by only
 the packet loss rate.
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}[6]{r}{0.5\textwidth}
     %\rule{5.5cm}{7.1cm}
 \begin{center}
     \includegraphics[width=0.48\textwidth]{img/cubic}
@@ -107,27 +107,27 @@ with
 \begin{figure}[ht]
 \begin{minipage}{6cm}
 \centering
-	\[ W_{cubic} = C(t - K)^3 + W_{max}\]
+\[ W_{cubic} = C(t - K)^3 + W_{max} \]
     \caption{CUBIC's Congestion Window.\protect\footnotemark}
     \label{fig:cubicform}
 \end{minipage}%
 \end{figure}%
 
-\footnotetext{C is a scaling factor, textit{t} is the elapsed time from the
+\footnotetext{C is a scaling factor, \textit{t} is the elapsed time from the
 last window reduction. $W_{max}$ is the window size before the last window
 reduction. $K=sqrt[3]{W_{max}beta/C}$. And $beta$ is a constant
 multiplication decrease factor applied for window reduction at the time of
 loss event}
 
-\noindent  one called Hybrid Slow Start (or HyStart)\cite{HaElephants}. 
+\noindent  one called Hybrid Slow Start (or HyStart) \cite{HaElephants}. 
 The idea behind this algorithm is to prevent the extra drop of packets caused by the
-overshoot of bandwidth done by the regular slow start. This extra amount of
-data cause unnecessary delay on both ends hosts and network, and taking long time to
+overshoot of bandwidth done by the regular slow start. This extra amount of data 
+cause unnecessary delay on both ends hosts and network, and taking long time to
 recover from, that can be worst if the packet drop is made at a late stage of
 the slow start\footnote{since slow start adds one extra packet for each
 acknowledged}.
 
-\paragraph{Compound TCP} is the modification to TCP stack algorithm promoted
+\paragraph{Compound TCP (CTCP)} is the modification to TCP stack algorithm promoted
 for Microsoft and implemented in their systems since Windows Vista and Server
 2008. This algorithm aims to achieve a significant improvement in resource
 utilization by TCP, presenting an fair mix between delay-based approach and
@@ -139,7 +139,7 @@ available bandwidth more quickly. But when the link is nearly full
 utilization, keep that aggressiveness is unproductive because at this stage it
 is expected that the protocol is more accurate in achieving complete the
 remaining bandwidth. So CTCP incorporates a scalable delay-based component
-into the standard TCP congestion avoidance algorithm\cite{4146841}.
+into the standard TCP congestion avoidance algorithm \cite{4146841}.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
     %\rule{5.5cm}{7.1cm}
@@ -158,7 +158,7 @@ utilization, it has an aggressive and scalable increase rule, and gradually it
 reduce the sending rate accordingly when the network is sensed to be fully
 utilized. But thanks to the packet loss component, it also reacts to packet
 loss reducing the sending rate to keep the conservative property of TCP. Also,
-Tan et al\cite{Tan06compoundtcp} has reveal that CTCP has a good performance
+Tan et al \cite{Tan06compoundtcp} has reveal that CTCP has a good performance
 over current high BDP networks too.
 
 \subsubsection{Fast retransmit and fast recovery} 
@@ -184,7 +184,7 @@ the next higher sequence number was dropped and needs to be retransmitted; all
 this without the need for the action triggered by the timeout.
 
 Fast recovery manages the continuous transmitting of new data on subsequent
-duplicate acknowledgments, until the retransmitted packet is received. and
+duplicate acknowledgments, until the retransmitted packet is received and
 after a non-duplicated acknowledge is received, the congestion window is reset
 back to the value it had before the fast retransmit was initiated, and the
 fast recovery mode is ended, going back to congestion avoidance mode.
